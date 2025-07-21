@@ -68,6 +68,14 @@
     "otelHeadersHelper": {
       "type": "string",
       "description": "Path to a script that outputs OpenTelemetry headers. Script should print headers in 'Name: Value' format, one per line."
+    },
+    "awsAuthRefresh": {
+      "type": "string",
+      "description": "Command to refresh AWS credentials in the foreground (e.g., for SSO browser flows). The command is executed in a visible terminal."
+    },
+    "awsCredentialExport": {
+      "type": "string",
+      "description": "Command that outputs AWS credentials in JSON format with 'AccessKeyId', 'SecretAccessKey', and optional 'SessionToken' fields."
     }
   },
   "additionalProperties": false

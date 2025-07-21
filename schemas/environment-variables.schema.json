@@ -21,6 +21,26 @@
       "type": "string",
       "description": "Bearer token for Amazon Bedrock API authentication"
     },
+    "AWS_REGION": {
+      "type": "string",
+      "description": "AWS region for Bedrock API calls (required when using Bedrock)"
+    },
+    "AWS_ACCESS_KEY_ID": {
+      "type": "string",
+      "description": "AWS access key ID for authentication"
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "type": "string",
+      "description": "AWS secret access key for authentication"
+    },
+    "AWS_SESSION_TOKEN": {
+      "type": "string",
+      "description": "AWS session token for temporary credentials"
+    },
+    "AWS_PROFILE": {
+      "type": "string",
+      "description": "AWS profile name to use for authentication"
+    },
     "ANTHROPIC_MODEL": {
       "type": "string",
       "description": "Custom model name to use for sessions"
@@ -157,6 +177,14 @@
       "format": "uri",
       "description": "HTTPS proxy server URL"
     },
+    "SSL_CERT_FILE": {
+      "type": "string",
+      "description": "Path to SSL certificate bundle file for corporate proxies"
+    },
+    "NODE_EXTRA_CA_CERTS": {
+      "type": "string",
+      "description": "Path to additional CA certificates file for Node.js"
+    },
     "MCP_TIMEOUT": {
       "type": "integer",
       "minimum": 0,
@@ -172,6 +200,20 @@
       "minimum": 0,
       "default": 25000,
       "description": "Maximum tokens for MCP tool responses"
+    },
+    "CLOUD_ML_REGION": {
+      "type": "string",
+      "description": "Google Cloud ML region for Vertex AI"
+    },
+    "ANTHROPIC_VERTEX_PROJECT_ID": {
+      "type": "string",
+      "description": "Google Cloud project ID for Vertex AI"
+    },
+    "DISABLE_PROMPT_CACHING": {
+      "type": "string",
+      "enum": ["0", "1", "true", "false"],
+      "default": "0",
+      "description": "Disable prompt caching for Bedrock and Vertex AI (1/true to disable)"
     },
     "VERTEX_REGION_CLAUDE_3_5_HAIKU": {
       "type": "string",
