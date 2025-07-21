@@ -1,0 +1,50 @@
+{
+  "$schema": "https://raw.githubusercontent.com/mkusaka/ccconfig/main/schemas/settings.schema.json",
+  "apiKeyHelper": "/usr/local/bin/get-api-key.sh",
+  "cleanupPeriodDays": 7,
+  "env": {
+    "NODE_ENV": "development",
+    "DEBUG": "true"
+  },
+  "includeCoAuthoredBy": true,
+  "permissions": {
+    "allow": [
+      "Bash(npm run lint)",
+      "Bash(npm run test:*)",
+      "Read(~/.zshrc)"
+    ],
+    "deny": [
+      "Bash(curl:*)",
+      "Write(/etc/*)"
+    ],
+    "additionalDirectories": ["/Users/username/Documents"],
+    "defaultMode": "default"
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'User submitted prompt' | logger"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/local/bin/check-bash-command.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  },
+  "model": "claude-3-5-sonnet-20241022",
+  "enableAllProjectMcpServers": false,
+  "enabledMcpjsonServers": ["filesystem", "git"]
+}

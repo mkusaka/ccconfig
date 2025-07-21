@@ -1,0 +1,26 @@
+{
+  "name": "claude-code-config-schema",
+  "version": "1.0.0",
+  "description": "JSON Schema definitions for Claude Code configuration",
+  "main": "schemas/claude-code-config.schema.json",
+  "scripts": {
+    "validate": "ajv validate -s schemas/settings.schema.json -d examples/settings.example.json",
+    "validate-all": "npm run validate",
+    "test": "npm run validate-all",
+    "build": "node scripts/build-unified-schema.js",
+    "prebuild": "mkdir -p schemas"
+  },
+  "keywords": [
+    "claude-code",
+    "json-schema",
+    "configuration",
+    "anthropic"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "ajv": "^8.12.0",
+    "ajv-cli": "^5.0.0",
+    "@apidevtools/json-schema-ref-parser": "^11.1.0"
+  }
+}

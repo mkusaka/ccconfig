@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/mkusaka/ccconfig/schemas/permissions.schema.json",
+  "title": "Claude Code Permissions Schema",
+  "description": "JSON Schema for Claude Code permissions configuration. Based on: iam, settings",
+  "type": "object",
+  "properties": {
+    "allow": {
+      "type": "array",
+      "description": "List of permission rules to allow specific tool usage. Format: 'ToolName' or 'ToolName(command/pattern)'.",
+      "items": {
+        "type": "string",
+        "description": "Permission rule string. Examples: 'Read', 'Bash(npm run test)', 'Edit(*.py)'",
+        "pattern": "^[A-Za-z]+(?:\\(.+\\))?$"
+      },
+      "default": [],
+      "examples": [
+        ["Bash(npm run lint)", "Bash(npm run test:*)", "Read(~/.zshrc)"]
+      ]
+    },
+    "deny": {
+      "type": "array",
+      "description": "List of permission rules to deny specific tool usage. Deny rules take precedence over allow rules.",
+      "items": {
+        "type": "string",
+        "description": "Permission rule string. Examples: 'Bash(curl:*)', 'Write(/etc/*)'",
+        "pattern": "^[A-Za-z]+(?:\\(.+\\))?$"
+      },
+      "default": [],
+      "examples": [
+        ["Bash(curl:*)", "Write(/etc/*)"]
+      ]
+    },
+    "additionalDirectories": {
+      "type": "array",
+      "description": "Additional directories that Claude Code can access beyond the working directory.",
+      "items": {
+        "type": "string",
+        "description": "Absolute path to a directory"
+      },
+      "default": []
+    },
+    "defaultMode": {
+      "type": "string",
+      "enum": ["default", "acceptEdits", "plan", "bypassPermissions"],
+      "default": "default",
+      "description": "Default permission mode. 'default': normal operation, 'acceptEdits': auto-accept file edits, 'plan': plan mode only, 'bypassPermissions': skip all permission checks (use with caution)."
+    },
+    "disableBypassPermissionsMode": {
+      "type": "string",
+      "enum": ["disable"],
+      "description": "Set to 'disable' to prevent bypassPermissions mode from being used, even if requested via CLI flags."
+    }
+  },
+  "additionalProperties": false
+}

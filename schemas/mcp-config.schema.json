@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/mkusaka/ccconfig/schemas/mcp-config.schema.json",
+  "title": "Claude Code MCP Configuration Schema",
+  "description": "JSON Schema for .mcp.json MCP (Model Context Protocol) server configuration. Based on: mcp",
+  "type": "object",
+  "properties": {
+    "mcpServers": {
+      "type": "object",
+      "description": "Map of MCP server configurations keyed by server name",
+      "additionalProperties": {
+        "$ref": "#/definitions/mcpServer"
+      }
+    }
+  },
+  "required": ["mcpServers"],
+  "additionalProperties": false,
+  "definitions": {
+    "mcpServer": {
+      "type": "object",
+      "oneOf": [
+        {
+          "$ref": "#/definitions/stdioServer"
+        },
+        {
+          "$ref": "#/definitions/sseServer"
+        },
+        {
+          "$ref": "#/definitions/httpServer"
+        }
+      ]
+    },
+    "stdioServer": {
+      "type": "object",
+      "required": ["command"],
+      "properties": {
+        "command": {
+          "type": "string",
+          "description": "Command to execute for stdio-based MCP server"
+        },
+        "args": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Command-line arguments to pass to the server",
+          "default": []
+        },
+        "env": {
+          "type": "object",
+          "description": "Environment variables to set for the server process",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "default": {}
+        },
+        "type": {
+          "type": "string",
+          "const": "stdio",
+          "description": "Server communication type"
+        }
+      },
+      "additionalProperties": false
+    },
+    "sseServer": {
+      "type": "object",
+      "required": ["url"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL endpoint for SSE-based MCP server"
+        },
+        "headers": {
+          "type": "object",
+          "description": "HTTP headers for authentication or other purposes",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "default": {}
+        },
+        "type": {
+          "type": "string",
+          "const": "sse",
+          "description": "Server communication type"
+        }
+      },
+      "additionalProperties": false
+    },
+    "httpServer": {
+      "type": "object",
+      "required": ["url"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL endpoint for HTTP-based MCP server"
+        },
+        "headers": {
+          "type": "object",
+          "description": "HTTP headers for authentication or other purposes",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "default": {}
+        },
+        "type": {
+          "type": "string",
+          "const": "http",
+          "description": "Server communication type"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

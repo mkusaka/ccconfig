@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/mkusaka/ccconfig/schemas/settings.schema.json",
+  "title": "Claude Code Settings Schema",
+  "description": "JSON Schema for Claude Code settings.json configuration file. Based on: settings",
+  "type": "object",
+  "properties": {
+    "apiKeyHelper": {
+      "type": "string",
+      "description": "Path to a custom script that outputs an API key. The script should print the API key to stdout and exit with code 0 for success."
+    },
+    "cleanupPeriodDays": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 30,
+      "description": "Number of days to retain chat transcripts before automatic cleanup. Set to 0 to disable cleanup."
+    },
+    "env": {
+      "type": "object",
+      "description": "Environment variables to apply to sessions. These are merged with the current environment.",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "includeCoAuthoredBy": {
+      "type": "boolean",
+      "default": true,
+      "description": "Include 'Co-authored-by: Claude <noreply@anthropic.com>' in git commits and pull requests."
+    },
+    "permissions": {
+      "$ref": "./permissions.schema.json",
+      "description": "Permission rules for tool usage and file access."
+    },
+    "hooks": {
+      "$ref": "./hooks.schema.json",
+      "description": "Custom commands to run before or after tool usage."
+    },
+    "model": {
+      "type": "string",
+      "description": "Override the default model for sessions. Examples: 'claude-3-5-sonnet-20241022', 'claude-3-5-haiku-20241022'."
+    },
+    "forceLoginMethod": {
+      "type": "string",
+      "enum": ["claudeai", "console"],
+      "description": "Force a specific login method. 'claudeai' uses Claude.ai account, 'console' uses Anthropic Console API key."
+    },
+    "enableAllProjectMcpServers": {
+      "type": "boolean",
+      "default": false,
+      "description": "Auto-accept all MCP servers defined in the project's .mcp.json file."
+    },
+    "enabledMcpjsonServers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "description": "List of specific MCP server names to approve from .mcp.json files."
+    },
+    "disabledMcpjsonServers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "description": "List of specific MCP server names to reject from .mcp.json files."
+    },
+    "otelHeadersHelper": {
+      "type": "string",
+      "description": "Path to a script that outputs OpenTelemetry headers. Script should print headers in 'Name: Value' format, one per line."
+    }
+  },
+  "additionalProperties": false
+}

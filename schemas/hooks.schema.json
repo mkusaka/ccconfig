@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/mkusaka/ccconfig/schemas/hooks.schema.json",
+  "title": "Claude Code Hooks Schema",
+  "description": "JSON Schema for Claude Code hooks configuration. Based on: hooks",
+  "type": "object",
+  "patternProperties": {
+    "^(PreToolUse|PostToolUse|Notification|UserPromptSubmit|Stop|SubagentStop|PreCompact)$": {
+      "type": "array",
+      "description": "Array of hook configurations for this event",
+      "items": {
+        "$ref": "#/definitions/hookConfiguration"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "hookConfiguration": {
+      "type": "object",
+      "required": ["hooks"],
+      "properties": {
+        "matcher": {
+          "type": "string",
+          "description": "Pattern to match against tool names (case-sensitive). Supports regex. Omit or use empty string to match all. Only applicable for PreToolUse and PostToolUse events.",
+          "default": ""
+        },
+        "hooks": {
+          "type": "array",
+          "description": "List of hooks to execute when matcher matches",
+          "items": {
+            "$ref": "#/definitions/hook"
+          },
+          "minItems": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "hook": {
+      "type": "object",
+      "required": ["type", "command"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["command"],
+          "description": "Hook type (currently only 'command' is supported)"
+        },
+        "command": {
+          "type": "string",
+          "description": "Shell command to execute. Receives context via stdin as JSON."
+        },
+        "timeout": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Timeout in seconds. If not specified, uses default timeout."
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

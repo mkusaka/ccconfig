@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/mkusaka/ccconfig/schemas/cli-flags.schema.json",
+  "title": "Claude Code CLI Flags Schema",
+  "description": "JSON Schema for Claude Code command-line interface flags. Based on: cli-reference",
+  "type": "object",
+  "properties": {
+    "add-dir": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Additional working directories to allow access to",
+      "default": []
+    },
+    "allowedTools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of tools Claude can use. If specified, only these tools are allowed.",
+      "default": []
+    },
+    "disallowedTools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of tools Claude cannot use. Takes precedence over allowedTools.",
+      "default": []
+    },
+    "print": {
+      "type": "boolean",
+      "description": "Print response without interactive mode (shorthand: -p)",
+      "default": false
+    },
+    "output-format": {
+      "type": "string",
+      "enum": ["text", "json", "stream-json"],
+      "description": "Output format for responses",
+      "default": "text"
+    },
+    "input-format": {
+      "type": "string",
+      "enum": ["text", "stream-json"],
+      "description": "Input format for prompts",
+      "default": "text"
+    },
+    "verbose": {
+      "type": "boolean",
+      "description": "Enable verbose logging",
+      "default": false
+    },
+    "debug": {
+      "type": "boolean",
+      "description": "Enable debug mode with detailed error information",
+      "default": false
+    },
+    "max-turns": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Maximum number of turns in non-interactive mode"
+    },
+    "model": {
+      "type": "string",
+      "description": "Model to use for the session (e.g., 'claude-3-5-sonnet-20241022')"
+    },
+    "permission-mode": {
+      "type": "string",
+      "enum": ["default", "acceptEdits", "plan", "bypassPermissions"],
+      "description": "Permission mode for the session"
+    },
+    "permission-prompt-tool": {
+      "type": "string",
+      "description": "MCP tool to handle permission prompts in non-interactive mode"
+    },
+    "resume": {
+      "type": "string",
+      "description": "Resume session by ID (shorthand: -r)"
+    },
+    "continue": {
+      "type": "boolean",
+      "description": "Continue the most recent conversation (shorthand: -c)",
+      "default": false
+    },
+    "dangerously-skip-permissions": {
+      "type": "boolean",
+      "description": "Skip all permission prompts (use with extreme caution)",
+      "default": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,1124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Claude Code Configuration Master Schema",
+  "description": "Complete JSON Schema for all Claude Code configuration options. Based on: all Claude Code documentation",
+  "type": "object",
+  "properties": {
+    "settingsFile": {
+      "description": "Configuration options for settings.json files",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$id": "https://github.com/mkusaka/ccconfig/schemas/settings.schema.json",
+      "title": "Claude Code Settings Schema",
+      "type": "object",
+      "properties": {
+        "apiKeyHelper": {
+          "type": "string",
+          "description": "Path to a custom script that outputs an API key. The script should print the API key to stdout and exit with code 0 for success."
+        },
+        "cleanupPeriodDays": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 30,
+          "description": "Number of days to retain chat transcripts before automatic cleanup. Set to 0 to disable cleanup."
+        },
+        "env": {
+          "type": "object",
+          "description": "Environment variables to apply to sessions. These are merged with the current environment.",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "includeCoAuthoredBy": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include 'Co-authored-by: Claude <noreply@anthropic.com>' in git commits and pull requests."
+        },
+        "permissions": {
+          "description": "Permission rules for tool usage and file access.",
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "$id": "https://github.com/mkusaka/ccconfig/schemas/permissions.schema.json",
+          "title": "Claude Code Permissions Schema",
+          "type": "object",
+          "properties": {
+            "allow": {
+              "type": "array",
+              "description": "List of permission rules to allow specific tool usage. Format: 'ToolName' or 'ToolName(command/pattern)'.",
+              "items": {
+                "type": "string",
+                "description": "Permission rule string. Examples: 'Read', 'Bash(npm run test)', 'Edit(*.py)'",
+                "pattern": "^[A-Za-z]+(?:\\(.+\\))?$"
+              },
+              "default": [],
+              "examples": [
+                [
+                  "Bash(npm run lint)",
+                  "Bash(npm run test:*)",
+                  "Read(~/.zshrc)"
+                ]
+              ]
+            },
+            "deny": {
+              "type": "array",
+              "description": "List of permission rules to deny specific tool usage. Deny rules take precedence over allow rules.",
+              "items": {
+                "type": "string",
+                "description": "Permission rule string. Examples: 'Bash(curl:*)', 'Write(/etc/*)'",
+                "pattern": "^[A-Za-z]+(?:\\(.+\\))?$"
+              },
+              "default": [],
+              "examples": [
+                [
+                  "Bash(curl:*)",
+                  "Write(/etc/*)"
+                ]
+              ]
+            },
+            "additionalDirectories": {
+              "type": "array",
+              "description": "Additional directories that Claude Code can access beyond the working directory.",
+              "items": {
+                "type": "string",
+                "description": "Absolute path to a directory"
+              },
+              "default": []
+            },
+            "defaultMode": {
+              "type": "string",
+              "enum": [
+                "default",
+                "acceptEdits",
+                "plan",
+                "bypassPermissions"
+              ],
+              "default": "default",
+              "description": "Default permission mode. 'default': normal operation, 'acceptEdits': auto-accept file edits, 'plan': plan mode only, 'bypassPermissions': skip all permission checks (use with caution)."
+            },
+            "disableBypassPermissionsMode": {
+              "type": "string",
+              "enum": [
+                "disable"
+              ],
+              "description": "Set to 'disable' to prevent bypassPermissions mode from being used, even if requested via CLI flags."
+            }
+          },
+          "additionalProperties": false
+        },
+        "hooks": {
+          "description": "Custom commands to run before or after tool usage.",
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "$id": "https://github.com/mkusaka/ccconfig/schemas/hooks.schema.json",
+          "title": "Claude Code Hooks Schema",
+          "type": "object",
+          "patternProperties": {
+            "^(PreToolUse|PostToolUse|Notification|UserPromptSubmit|Stop|SubagentStop|PreCompact)$": {
+              "type": "array",
+              "description": "Array of hook configurations for this event",
+              "items": {
+                "type": "object",
+                "required": [
+                  "hooks"
+                ],
+                "properties": {
+                  "matcher": {
+                    "type": "string",
+                    "description": "Pattern to match against tool names (case-sensitive). Supports regex. Omit or use empty string to match all. Only applicable for PreToolUse and PostToolUse events.",
+                    "default": ""
+                  },
+                  "hooks": {
+                    "type": "array",
+                    "description": "List of hooks to execute when matcher matches",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "command"
+                      ],
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "command"
+                          ],
+                          "description": "Hook type (currently only 'command' is supported)"
+                        },
+                        "command": {
+                          "type": "string",
+                          "description": "Shell command to execute. Receives context via stdin as JSON."
+                        },
+                        "timeout": {
+                          "type": "number",
+                          "minimum": 0,
+                          "description": "Timeout in seconds. If not specified, uses default timeout."
+                        }
+                      },
+                      "additionalProperties": false
+                    },
+                    "minItems": 1
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false,
+          "definitions": {
+            "hookConfiguration": {
+              "type": "object",
+              "required": [
+                "hooks"
+              ],
+              "properties": {
+                "matcher": {
+                  "type": "string",
+                  "description": "Pattern to match against tool names (case-sensitive). Supports regex. Omit or use empty string to match all. Only applicable for PreToolUse and PostToolUse events.",
+                  "default": ""
+                },
+                "hooks": {
+                  "type": "array",
+                  "description": "List of hooks to execute when matcher matches",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "command"
+                    ],
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "command"
+                        ],
+                        "description": "Hook type (currently only 'command' is supported)"
+                      },
+                      "command": {
+                        "type": "string",
+                        "description": "Shell command to execute. Receives context via stdin as JSON."
+                      },
+                      "timeout": {
+                        "type": "number",
+                        "minimum": 0,
+                        "description": "Timeout in seconds. If not specified, uses default timeout."
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "minItems": 1
+                }
+              },
+              "additionalProperties": false
+            },
+            "hook": {
+              "type": "object",
+              "required": [
+                "type",
+                "command"
+              ],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "command"
+                  ],
+                  "description": "Hook type (currently only 'command' is supported)"
+                },
+                "command": {
+                  "type": "string",
+                  "description": "Shell command to execute. Receives context via stdin as JSON."
+                },
+                "timeout": {
+                  "type": "number",
+                  "minimum": 0,
+                  "description": "Timeout in seconds. If not specified, uses default timeout."
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "model": {
+          "type": "string",
+          "description": "Override the default model for sessions. Examples: 'claude-3-5-sonnet-20241022', 'claude-3-5-haiku-20241022'."
+        },
+        "forceLoginMethod": {
+          "type": "string",
+          "enum": [
+            "claudeai",
+            "console"
+          ],
+          "description": "Force a specific login method. 'claudeai' uses Claude.ai account, 'console' uses Anthropic Console API key."
+        },
+        "enableAllProjectMcpServers": {
+          "type": "boolean",
+          "default": false,
+          "description": "Auto-accept all MCP servers defined in the project's .mcp.json file."
+        },
+        "enabledMcpjsonServers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "List of specific MCP server names to approve from .mcp.json files."
+        },
+        "disabledMcpjsonServers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "List of specific MCP server names to reject from .mcp.json files."
+        },
+        "otelHeadersHelper": {
+          "type": "string",
+          "description": "Path to a script that outputs OpenTelemetry headers. Script should print headers in 'Name: Value' format, one per line."
+        }
+      },
+      "additionalProperties": false
+    },
+    "environmentVariables": {
+      "description": "Environment variables for Claude Code",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$id": "https://github.com/mkusaka/ccconfig/schemas/environment-variables.schema.json",
+      "title": "Claude Code Environment Variables Schema",
+      "type": "object",
+      "properties": {
+        "ANTHROPIC_API_KEY": {
+          "type": "string",
+          "description": "API key sent as X-Api-Key header to Anthropic API"
+        },
+        "ANTHROPIC_AUTH_TOKEN": {
+          "type": "string",
+          "description": "Custom authentication token sent with Bearer prefix"
+        },
+        "ANTHROPIC_CUSTOM_HEADERS": {
+          "type": "string",
+          "description": "Custom headers in 'Name: Value' format, one per line"
+        },
+        "AWS_BEARER_TOKEN_BEDROCK": {
+          "type": "string",
+          "description": "Bearer token for Amazon Bedrock API authentication"
+        },
+        "ANTHROPIC_MODEL": {
+          "type": "string",
+          "description": "Custom model name to use for sessions"
+        },
+        "ANTHROPIC_SMALL_FAST_MODEL": {
+          "type": "string",
+          "description": "Haiku-class model name for background tasks"
+        },
+        "ANTHROPIC_SMALL_FAST_MODEL_AWS_REGION": {
+          "type": "string",
+          "description": "AWS region for small/fast model when using Bedrock"
+        },
+        "BASH_DEFAULT_TIMEOUT_MS": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Default timeout for Bash commands in milliseconds"
+        },
+        "BASH_MAX_TIMEOUT_MS": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Maximum allowed timeout for Bash commands in milliseconds"
+        },
+        "BASH_MAX_OUTPUT_LENGTH": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Maximum number of characters in Bash command output"
+        },
+        "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1",
+            "true",
+            "false"
+          ],
+          "description": "Return to original working directory after each Bash command (1/true to enable)"
+        },
+        "CLAUDE_CODE_MAX_OUTPUT_TOKENS": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Maximum output tokens for model responses"
+        },
+        "MAX_THINKING_TOKENS": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Maximum tokens for model thinking/reasoning"
+        },
+        "CLAUDE_CODE_USE_BEDROCK": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1",
+            "true",
+            "false"
+          ],
+          "default": "0",
+          "description": "Use Amazon Bedrock instead of direct Anthropic API (1/true to enable)"
+        },
+        "CLAUDE_CODE_USE_VERTEX": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1",
+            "true",
+            "false"
+          ],
+          "default": "0",
+          "description": "Use Google Vertex AI instead of direct Anthropic API (1/true to enable)"
+        },
+        "CLAUDE_CODE_SKIP_BEDROCK_AUTH": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1",
+            "true",
+            "false"
+          ],
+          "default": "0",
+          "description": "Skip Bedrock authentication (for pre-authenticated environments) (1/true to enable)"
+        },
+        "CLAUDE_CODE_SKIP_VERTEX_AUTH": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1",
+            "true",
+            "false"
+          ],
+          "default": "0",
+          "description": "Skip Vertex AI authentication (for pre-authenticated environments) (1/true to enable)"
+        },
+        "CLAUDE_CODE_API_KEY_HELPER_TTL_MS": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 300000,
+          "description": "Credential refresh interval in milliseconds (default: 5 minutes)"
+        },
+        "CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1",
+            "true",
+            "false"
+          ],
+          "default": "0",
+          "description": "Skip automatic IDE extension installation (1/true to enable)"
+        },
+        "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1",
+            "true",
+            "false"
+          ],
+          "default": "0",
+          "description": "Disable non-essential network traffic (analytics, telemetry) (1/true to enable)"
+        },
+        "CLAUDE_CODE_DISABLE_TERMINAL_TITLE": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1",
+            "true",
+            "false"
+          ],
+          "default": "0",
+          "description": "Disable automatic terminal title updates (1/true to enable)"
+        },
+        "DISABLE_AUTOUPDATER": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1",
+            "true",
+            "false"
+          ],
+          "default": "0",
+          "description": "Disable automatic updates (1/true to enable)"
+        },
+        "DISABLE_BUG_COMMAND": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1",
+            "true",
+            "false"
+          ],
+          "default": "0",
+          "description": "Disable the /bug command (1/true to enable)"
+        },
+        "DISABLE_COST_WARNINGS": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1",
+            "true",
+            "false"
+          ],
+          "default": "0",
+          "description": "Disable cost warning messages (1/true to enable)"
+        },
+        "DISABLE_ERROR_REPORTING": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1",
+            "true",
+            "false"
+          ],
+          "default": "0",
+          "description": "Disable Sentry error reporting (1/true to enable)"
+        },
+        "DISABLE_NON_ESSENTIAL_MODEL_CALLS": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1",
+            "true",
+            "false"
+          ],
+          "default": "0",
+          "description": "Disable non-critical model calls (summaries, suggestions) (1/true to enable)"
+        },
+        "DISABLE_TELEMETRY": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1",
+            "true",
+            "false"
+          ],
+          "default": "0",
+          "description": "Disable Statsig telemetry (1/true to enable)"
+        },
+        "HTTP_PROXY": {
+          "type": "string",
+          "format": "uri",
+          "description": "HTTP proxy server URL"
+        },
+        "HTTPS_PROXY": {
+          "type": "string",
+          "format": "uri",
+          "description": "HTTPS proxy server URL"
+        },
+        "MCP_TIMEOUT": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "MCP server startup timeout in milliseconds"
+        },
+        "MCP_TOOL_TIMEOUT": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "MCP tool execution timeout in milliseconds"
+        },
+        "MAX_MCP_OUTPUT_TOKENS": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 25000,
+          "description": "Maximum tokens for MCP tool responses"
+        },
+        "VERTEX_REGION_CLAUDE_3_5_HAIKU": {
+          "type": "string",
+          "description": "Vertex AI region for Claude 3.5 Haiku model"
+        },
+        "VERTEX_REGION_CLAUDE_3_5_SONNET": {
+          "type": "string",
+          "description": "Vertex AI region for Claude 3.5 Sonnet model"
+        },
+        "VERTEX_REGION_CLAUDE_3_7_SONNET": {
+          "type": "string",
+          "description": "Vertex AI region for Claude 3.7 Sonnet model"
+        },
+        "VERTEX_REGION_CLAUDE_4_0_OPUS": {
+          "type": "string",
+          "description": "Vertex AI region for Claude 4.0 Opus model"
+        },
+        "VERTEX_REGION_CLAUDE_4_0_SONNET": {
+          "type": "string",
+          "description": "Vertex AI region for Claude 4.0 Sonnet model"
+        },
+        "CLAUDE_CODE_ENABLE_TELEMETRY": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1"
+          ],
+          "default": "0",
+          "description": "Enable OpenTelemetry telemetry (1=enabled, 0=disabled)"
+        },
+        "OTEL_METRICS_EXPORTER": {
+          "type": "string",
+          "enum": [
+            "console",
+            "otlp",
+            "prometheus"
+          ],
+          "description": "OpenTelemetry metrics exporter type"
+        },
+        "OTEL_LOGS_EXPORTER": {
+          "type": "string",
+          "enum": [
+            "console",
+            "otlp"
+          ],
+          "description": "OpenTelemetry logs exporter type"
+        },
+        "OTEL_EXPORTER_OTLP_PROTOCOL": {
+          "type": "string",
+          "enum": [
+            "grpc",
+            "http/json",
+            "http/protobuf"
+          ],
+          "description": "OTLP exporter protocol"
+        },
+        "OTEL_EXPORTER_OTLP_ENDPOINT": {
+          "type": "string",
+          "format": "uri",
+          "description": "OTLP exporter endpoint URL"
+        },
+        "OTEL_EXPORTER_OTLP_HEADERS": {
+          "type": "string",
+          "description": "OTLP authentication headers in 'Name=Value,Name2=Value2' format"
+        },
+        "OTEL_EXPORTER_OTLP_METRICS_PROTOCOL": {
+          "type": "string",
+          "enum": [
+            "grpc",
+            "http/json",
+            "http/protobuf"
+          ],
+          "description": "OTLP metrics exporter protocol"
+        },
+        "OTEL_EXPORTER_OTLP_METRICS_ENDPOINT": {
+          "type": "string",
+          "format": "uri",
+          "description": "OTLP metrics exporter endpoint URL"
+        },
+        "OTEL_EXPORTER_OTLP_LOGS_PROTOCOL": {
+          "type": "string",
+          "enum": [
+            "grpc",
+            "http/json",
+            "http/protobuf"
+          ],
+          "description": "OTLP logs exporter protocol"
+        },
+        "OTEL_EXPORTER_OTLP_LOGS_ENDPOINT": {
+          "type": "string",
+          "format": "uri",
+          "description": "OTLP logs exporter endpoint URL"
+        },
+        "OTEL_EXPORTER_OTLP_METRICS_CLIENT_KEY": {
+          "type": "string",
+          "description": "Path to client key file for mTLS authentication for metrics"
+        },
+        "OTEL_EXPORTER_OTLP_METRICS_CLIENT_CERTIFICATE": {
+          "type": "string",
+          "description": "Path to client certificate file for mTLS authentication for metrics"
+        },
+        "OTEL_METRIC_EXPORT_INTERVAL": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 60000,
+          "description": "Metrics export interval in milliseconds"
+        },
+        "OTEL_LOGS_EXPORT_INTERVAL": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 5000,
+          "description": "Logs export interval in milliseconds"
+        },
+        "OTEL_LOG_USER_PROMPTS": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1"
+          ],
+          "default": "0",
+          "description": "Log user prompts in telemetry (1=enabled, 0=disabled)"
+        },
+        "OTEL_METRICS_INCLUDE_SESSION_ID": {
+          "type": "string",
+          "enum": [
+            "true",
+            "false"
+          ],
+          "default": "true",
+          "description": "Include session.id attribute in metrics"
+        },
+        "OTEL_METRICS_INCLUDE_VERSION": {
+          "type": "string",
+          "enum": [
+            "true",
+            "false"
+          ],
+          "default": "false",
+          "description": "Include app.version attribute in metrics"
+        },
+        "OTEL_METRICS_INCLUDE_ACCOUNT_UUID": {
+          "type": "string",
+          "enum": [
+            "true",
+            "false"
+          ],
+          "default": "true",
+          "description": "Include user.account_uuid attribute in metrics"
+        },
+        "OTEL_RESOURCE_ATTRIBUTES": {
+          "type": "string",
+          "description": "Custom resource attributes in 'key=value,key2=value2' format"
+        }
+      },
+      "additionalProperties": true
+    },
+    "cliFlags": {
+      "description": "Command-line interface flags",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$id": "https://github.com/mkusaka/ccconfig/schemas/cli-flags.schema.json",
+      "title": "Claude Code CLI Flags Schema",
+      "type": "object",
+      "properties": {
+        "add-dir": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Additional working directories to allow access to",
+          "default": []
+        },
+        "allowedTools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of tools Claude can use. If specified, only these tools are allowed.",
+          "default": []
+        },
+        "disallowedTools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of tools Claude cannot use. Takes precedence over allowedTools.",
+          "default": []
+        },
+        "print": {
+          "type": "boolean",
+          "description": "Print response without interactive mode (shorthand: -p)",
+          "default": false
+        },
+        "output-format": {
+          "type": "string",
+          "enum": [
+            "text",
+            "json",
+            "stream-json"
+          ],
+          "description": "Output format for responses",
+          "default": "text"
+        },
+        "input-format": {
+          "type": "string",
+          "enum": [
+            "text",
+            "stream-json"
+          ],
+          "description": "Input format for prompts",
+          "default": "text"
+        },
+        "verbose": {
+          "type": "boolean",
+          "description": "Enable verbose logging",
+          "default": false
+        },
+        "debug": {
+          "type": "boolean",
+          "description": "Enable debug mode with detailed error information",
+          "default": false
+        },
+        "max-turns": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Maximum number of turns in non-interactive mode"
+        },
+        "model": {
+          "type": "string",
+          "description": "Model to use for the session (e.g., 'claude-3-5-sonnet-20241022')"
+        },
+        "permission-mode": {
+          "type": "string",
+          "enum": [
+            "default",
+            "acceptEdits",
+            "plan",
+            "bypassPermissions"
+          ],
+          "description": "Permission mode for the session"
+        },
+        "permission-prompt-tool": {
+          "type": "string",
+          "description": "MCP tool to handle permission prompts in non-interactive mode"
+        },
+        "resume": {
+          "type": "string",
+          "description": "Resume session by ID (shorthand: -r)"
+        },
+        "continue": {
+          "type": "boolean",
+          "description": "Continue the most recent conversation (shorthand: -c)",
+          "default": false
+        },
+        "dangerously-skip-permissions": {
+          "type": "boolean",
+          "description": "Skip all permission prompts (use with extreme caution)",
+          "default": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "globalConfig": {
+      "description": "Global configuration options (claude-code config)",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$id": "https://github.com/mkusaka/ccconfig/schemas/global-config.schema.json",
+      "title": "Claude Code Global Configuration Schema",
+      "type": "object",
+      "properties": {
+        "autoUpdates": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable automatic updates for Claude Code"
+        },
+        "preferredNotifChannel": {
+          "type": "string",
+          "enum": [
+            "iterm2",
+            "iterm2_with_bell",
+            "terminal_bell",
+            "notifications_disabled"
+          ],
+          "default": "iterm2",
+          "description": "Preferred notification channel. 'iterm2': iTerm2 notifications, 'iterm2_with_bell': iTerm2 + bell, 'terminal_bell': terminal bell only, 'notifications_disabled': no notifications"
+        },
+        "theme": {
+          "type": "string",
+          "enum": [
+            "dark",
+            "light",
+            "light-daltonized",
+            "dark-daltonized"
+          ],
+          "description": "Color theme for the interface. Daltonized themes are optimized for color blindness."
+        },
+        "verbose": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show full bash and command output in the interface"
+        },
+        "vimMode": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable vim mode keybindings in the interactive terminal interface"
+        }
+      },
+      "additionalProperties": false
+    },
+    "mcpConfig": {
+      "description": "MCP (Model Context Protocol) server configuration (.mcp.json files)",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$id": "https://github.com/mkusaka/ccconfig/schemas/mcp-config.schema.json",
+      "title": "Claude Code MCP Configuration Schema",
+      "type": "object",
+      "properties": {
+        "mcpServers": {
+          "type": "object",
+          "description": "Map of MCP server configurations keyed by server name",
+          "additionalProperties": {
+            "type": "object",
+            "oneOf": [
+              {
+                "type": "object",
+                "required": [
+                  "command"
+                ],
+                "properties": {
+                  "command": {
+                    "type": "string",
+                    "description": "Command to execute for stdio-based MCP server"
+                  },
+                  "args": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Command-line arguments to pass to the server",
+                    "default": []
+                  },
+                  "env": {
+                    "type": "object",
+                    "description": "Environment variables to set for the server process",
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "default": {}
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "stdio",
+                    "description": "Server communication type"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "required": [
+                  "url"
+                ],
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "URL endpoint for SSE-based MCP server"
+                  },
+                  "headers": {
+                    "type": "object",
+                    "description": "HTTP headers for authentication or other purposes",
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "default": {}
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "sse",
+                    "description": "Server communication type"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "required": [
+                  "url"
+                ],
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "URL endpoint for HTTP-based MCP server"
+                  },
+                  "headers": {
+                    "type": "object",
+                    "description": "HTTP headers for authentication or other purposes",
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "default": {}
+                  },
+                  "type": {
+                    "type": "string",
+                    "const": "http",
+                    "description": "Server communication type"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "mcpServers"
+      ],
+      "additionalProperties": false,
+      "definitions": {
+        "mcpServer": {
+          "type": "object",
+          "oneOf": [
+            {
+              "type": "object",
+              "required": [
+                "command"
+              ],
+              "properties": {
+                "command": {
+                  "type": "string",
+                  "description": "Command to execute for stdio-based MCP server"
+                },
+                "args": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Command-line arguments to pass to the server",
+                  "default": []
+                },
+                "env": {
+                  "type": "object",
+                  "description": "Environment variables to set for the server process",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "default": {}
+                },
+                "type": {
+                  "type": "string",
+                  "const": "stdio",
+                  "description": "Server communication type"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "url"
+              ],
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "URL endpoint for SSE-based MCP server"
+                },
+                "headers": {
+                  "type": "object",
+                  "description": "HTTP headers for authentication or other purposes",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "default": {}
+                },
+                "type": {
+                  "type": "string",
+                  "const": "sse",
+                  "description": "Server communication type"
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": [
+                "url"
+              ],
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "URL endpoint for HTTP-based MCP server"
+                },
+                "headers": {
+                  "type": "object",
+                  "description": "HTTP headers for authentication or other purposes",
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "default": {}
+                },
+                "type": {
+                  "type": "string",
+                  "const": "http",
+                  "description": "Server communication type"
+                }
+              },
+              "additionalProperties": false
+            }
+          ]
+        },
+        "stdioServer": {
+          "type": "object",
+          "required": [
+            "command"
+          ],
+          "properties": {
+            "command": {
+              "type": "string",
+              "description": "Command to execute for stdio-based MCP server"
+            },
+            "args": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Command-line arguments to pass to the server",
+              "default": []
+            },
+            "env": {
+              "type": "object",
+              "description": "Environment variables to set for the server process",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "default": {}
+            },
+            "type": {
+              "type": "string",
+              "const": "stdio",
+              "description": "Server communication type"
+            }
+          },
+          "additionalProperties": false
+        },
+        "sseServer": {
+          "type": "object",
+          "required": [
+            "url"
+          ],
+          "properties": {
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "description": "URL endpoint for SSE-based MCP server"
+            },
+            "headers": {
+              "type": "object",
+              "description": "HTTP headers for authentication or other purposes",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "default": {}
+            },
+            "type": {
+              "type": "string",
+              "const": "sse",
+              "description": "Server communication type"
+            }
+          },
+          "additionalProperties": false
+        },
+        "httpServer": {
+          "type": "object",
+          "required": [
+            "url"
+          ],
+          "properties": {
+            "url": {
+              "type": "string",
+              "format": "uri",
+              "description": "URL endpoint for HTTP-based MCP server"
+            },
+            "headers": {
+              "type": "object",
+              "description": "HTTP headers for authentication or other purposes",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "default": {}
+            },
+            "type": {
+              "type": "string",
+              "const": "http",
+              "description": "Server communication type"
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

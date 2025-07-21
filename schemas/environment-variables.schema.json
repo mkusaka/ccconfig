@@ -1,0 +1,296 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/mkusaka/ccconfig/schemas/environment-variables.schema.json",
+  "title": "Claude Code Environment Variables Schema",
+  "description": "JSON Schema for Claude Code environment variables. Based on: monitoring-usage, setup, amazon-bedrock, google-vertex-ai, mcp, settings",
+  "type": "object",
+  "properties": {
+    "ANTHROPIC_API_KEY": {
+      "type": "string",
+      "description": "API key sent as X-Api-Key header to Anthropic API"
+    },
+    "ANTHROPIC_AUTH_TOKEN": {
+      "type": "string",
+      "description": "Custom authentication token sent with Bearer prefix"
+    },
+    "ANTHROPIC_CUSTOM_HEADERS": {
+      "type": "string",
+      "description": "Custom headers in 'Name: Value' format, one per line"
+    },
+    "AWS_BEARER_TOKEN_BEDROCK": {
+      "type": "string",
+      "description": "Bearer token for Amazon Bedrock API authentication"
+    },
+    "ANTHROPIC_MODEL": {
+      "type": "string",
+      "description": "Custom model name to use for sessions"
+    },
+    "ANTHROPIC_SMALL_FAST_MODEL": {
+      "type": "string",
+      "description": "Haiku-class model name for background tasks"
+    },
+    "ANTHROPIC_SMALL_FAST_MODEL_AWS_REGION": {
+      "type": "string",
+      "description": "AWS region for small/fast model when using Bedrock"
+    },
+    "BASH_DEFAULT_TIMEOUT_MS": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Default timeout for Bash commands in milliseconds"
+    },
+    "BASH_MAX_TIMEOUT_MS": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Maximum allowed timeout for Bash commands in milliseconds"
+    },
+    "BASH_MAX_OUTPUT_LENGTH": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Maximum number of characters in Bash command output"
+    },
+    "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": {
+      "type": "string",
+      "enum": ["0", "1", "true", "false"],
+      "description": "Return to original working directory after each Bash command (1/true to enable)"
+    },
+    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Maximum output tokens for model responses"
+    },
+    "MAX_THINKING_TOKENS": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Maximum tokens for model thinking/reasoning"
+    },
+    "CLAUDE_CODE_USE_BEDROCK": {
+      "type": "string",
+      "enum": ["0", "1", "true", "false"],
+      "default": "0",
+      "description": "Use Amazon Bedrock instead of direct Anthropic API (1/true to enable)"
+    },
+    "CLAUDE_CODE_USE_VERTEX": {
+      "type": "string",
+      "enum": ["0", "1", "true", "false"],
+      "default": "0",
+      "description": "Use Google Vertex AI instead of direct Anthropic API (1/true to enable)"
+    },
+    "CLAUDE_CODE_SKIP_BEDROCK_AUTH": {
+      "type": "string",
+      "enum": ["0", "1", "true", "false"],
+      "default": "0",
+      "description": "Skip Bedrock authentication (for pre-authenticated environments) (1/true to enable)"
+    },
+    "CLAUDE_CODE_SKIP_VERTEX_AUTH": {
+      "type": "string",
+      "enum": ["0", "1", "true", "false"],
+      "default": "0",
+      "description": "Skip Vertex AI authentication (for pre-authenticated environments) (1/true to enable)"
+    },
+    "CLAUDE_CODE_API_KEY_HELPER_TTL_MS": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 300000,
+      "description": "Credential refresh interval in milliseconds (default: 5 minutes)"
+    },
+    "CLAUDE_CODE_IDE_SKIP_AUTO_INSTALL": {
+      "type": "string",
+      "enum": ["0", "1", "true", "false"],
+      "default": "0",
+      "description": "Skip automatic IDE extension installation (1/true to enable)"
+    },
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": {
+      "type": "string",
+      "enum": ["0", "1", "true", "false"],
+      "default": "0",
+      "description": "Disable non-essential network traffic (analytics, telemetry) (1/true to enable)"
+    },
+    "CLAUDE_CODE_DISABLE_TERMINAL_TITLE": {
+      "type": "string",
+      "enum": ["0", "1", "true", "false"],
+      "default": "0",
+      "description": "Disable automatic terminal title updates (1/true to enable)"
+    },
+    "DISABLE_AUTOUPDATER": {
+      "type": "string",
+      "enum": ["0", "1", "true", "false"],
+      "default": "0",
+      "description": "Disable automatic updates (1/true to enable)"
+    },
+    "DISABLE_BUG_COMMAND": {
+      "type": "string",
+      "enum": ["0", "1", "true", "false"],
+      "default": "0",
+      "description": "Disable the /bug command (1/true to enable)"
+    },
+    "DISABLE_COST_WARNINGS": {
+      "type": "string",
+      "enum": ["0", "1", "true", "false"],
+      "default": "0",
+      "description": "Disable cost warning messages (1/true to enable)"
+    },
+    "DISABLE_ERROR_REPORTING": {
+      "type": "string",
+      "enum": ["0", "1", "true", "false"],
+      "default": "0",
+      "description": "Disable Sentry error reporting (1/true to enable)"
+    },
+    "DISABLE_NON_ESSENTIAL_MODEL_CALLS": {
+      "type": "string",
+      "enum": ["0", "1", "true", "false"],
+      "default": "0",
+      "description": "Disable non-critical model calls (summaries, suggestions) (1/true to enable)"
+    },
+    "DISABLE_TELEMETRY": {
+      "type": "string",
+      "enum": ["0", "1", "true", "false"],
+      "default": "0",
+      "description": "Disable Statsig telemetry (1/true to enable)"
+    },
+    "HTTP_PROXY": {
+      "type": "string",
+      "format": "uri",
+      "description": "HTTP proxy server URL"
+    },
+    "HTTPS_PROXY": {
+      "type": "string",
+      "format": "uri",
+      "description": "HTTPS proxy server URL"
+    },
+    "MCP_TIMEOUT": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "MCP server startup timeout in milliseconds"
+    },
+    "MCP_TOOL_TIMEOUT": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "MCP tool execution timeout in milliseconds"
+    },
+    "MAX_MCP_OUTPUT_TOKENS": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 25000,
+      "description": "Maximum tokens for MCP tool responses"
+    },
+    "VERTEX_REGION_CLAUDE_3_5_HAIKU": {
+      "type": "string",
+      "description": "Vertex AI region for Claude 3.5 Haiku model"
+    },
+    "VERTEX_REGION_CLAUDE_3_5_SONNET": {
+      "type": "string",
+      "description": "Vertex AI region for Claude 3.5 Sonnet model"
+    },
+    "VERTEX_REGION_CLAUDE_3_7_SONNET": {
+      "type": "string",
+      "description": "Vertex AI region for Claude 3.7 Sonnet model"
+    },
+    "VERTEX_REGION_CLAUDE_4_0_OPUS": {
+      "type": "string",
+      "description": "Vertex AI region for Claude 4.0 Opus model"
+    },
+    "VERTEX_REGION_CLAUDE_4_0_SONNET": {
+      "type": "string",
+      "description": "Vertex AI region for Claude 4.0 Sonnet model"
+    },
+    "CLAUDE_CODE_ENABLE_TELEMETRY": {
+      "type": "string",
+      "enum": ["0", "1"],
+      "default": "0",
+      "description": "Enable OpenTelemetry telemetry (1=enabled, 0=disabled)"
+    },
+    "OTEL_METRICS_EXPORTER": {
+      "type": "string",
+      "enum": ["console", "otlp", "prometheus"],
+      "description": "OpenTelemetry metrics exporter type"
+    },
+    "OTEL_LOGS_EXPORTER": {
+      "type": "string",
+      "enum": ["console", "otlp"],
+      "description": "OpenTelemetry logs exporter type"
+    },
+    "OTEL_EXPORTER_OTLP_PROTOCOL": {
+      "type": "string",
+      "enum": ["grpc", "http/json", "http/protobuf"],
+      "description": "OTLP exporter protocol"
+    },
+    "OTEL_EXPORTER_OTLP_ENDPOINT": {
+      "type": "string",
+      "format": "uri",
+      "description": "OTLP exporter endpoint URL"
+    },
+    "OTEL_EXPORTER_OTLP_HEADERS": {
+      "type": "string",
+      "description": "OTLP authentication headers in 'Name=Value,Name2=Value2' format"
+    },
+    "OTEL_EXPORTER_OTLP_METRICS_PROTOCOL": {
+      "type": "string",
+      "enum": ["grpc", "http/json", "http/protobuf"],
+      "description": "OTLP metrics exporter protocol"
+    },
+    "OTEL_EXPORTER_OTLP_METRICS_ENDPOINT": {
+      "type": "string",
+      "format": "uri",
+      "description": "OTLP metrics exporter endpoint URL"
+    },
+    "OTEL_EXPORTER_OTLP_LOGS_PROTOCOL": {
+      "type": "string",
+      "enum": ["grpc", "http/json", "http/protobuf"],
+      "description": "OTLP logs exporter protocol"
+    },
+    "OTEL_EXPORTER_OTLP_LOGS_ENDPOINT": {
+      "type": "string",
+      "format": "uri",
+      "description": "OTLP logs exporter endpoint URL"
+    },
+    "OTEL_EXPORTER_OTLP_METRICS_CLIENT_KEY": {
+      "type": "string",
+      "description": "Path to client key file for mTLS authentication for metrics"
+    },
+    "OTEL_EXPORTER_OTLP_METRICS_CLIENT_CERTIFICATE": {
+      "type": "string",
+      "description": "Path to client certificate file for mTLS authentication for metrics"
+    },
+    "OTEL_METRIC_EXPORT_INTERVAL": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 60000,
+      "description": "Metrics export interval in milliseconds"
+    },
+    "OTEL_LOGS_EXPORT_INTERVAL": {
+      "type": "integer",
+      "minimum": 0,
+      "default": 5000,
+      "description": "Logs export interval in milliseconds"
+    },
+    "OTEL_LOG_USER_PROMPTS": {
+      "type": "string",
+      "enum": ["0", "1"],
+      "default": "0",
+      "description": "Log user prompts in telemetry (1=enabled, 0=disabled)"
+    },
+    "OTEL_METRICS_INCLUDE_SESSION_ID": {
+      "type": "string",
+      "enum": ["true", "false"],
+      "default": "true",
+      "description": "Include session.id attribute in metrics"
+    },
+    "OTEL_METRICS_INCLUDE_VERSION": {
+      "type": "string",
+      "enum": ["true", "false"],
+      "default": "false",
+      "description": "Include app.version attribute in metrics"
+    },
+    "OTEL_METRICS_INCLUDE_ACCOUNT_UUID": {
+      "type": "string",
+      "enum": ["true", "false"],
+      "default": "true",
+      "description": "Include user.account_uuid attribute in metrics"
+    },
+    "OTEL_RESOURCE_ATTRIBUTES": {
+      "type": "string",
+      "description": "Custom resource attributes in 'key=value,key2=value2' format"
+    }
+  },
+  "additionalProperties": true
+}

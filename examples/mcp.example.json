@@ -1,0 +1,30 @@
+{
+  "$schema": "https://raw.githubusercontent.com/mkusaka/ccconfig/main/schemas/mcp-config.schema.json",
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/tmp"],
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "git": {
+      "command": "uvx",
+      "args": ["mcp-server-git", "--repository", "."]
+    },
+    "web-search": {
+      "type": "sse",
+      "url": "https://mcp.example.com/search",
+      "headers": {
+        "Authorization": "Bearer your-api-key"
+      }
+    },
+    "database": {
+      "type": "http",
+      "url": "https://mcp.example.com/database",
+      "headers": {
+        "X-API-Key": "your-database-key"
+      }
+    }
+  }
+}

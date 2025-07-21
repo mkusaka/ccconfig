@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/mkusaka/ccconfig/schemas/global-config.schema.json",
+  "title": "Claude Code Global Configuration Schema",
+  "description": "JSON Schema for Claude Code global configuration (claude-code config command). Based on: settings, terminal-config",
+  "type": "object",
+  "properties": {
+    "autoUpdates": {
+      "type": "boolean",
+      "default": true,
+      "description": "Enable automatic updates for Claude Code"
+    },
+    "preferredNotifChannel": {
+      "type": "string",
+      "enum": ["iterm2", "iterm2_with_bell", "terminal_bell", "notifications_disabled"],
+      "default": "iterm2",
+      "description": "Preferred notification channel. 'iterm2': iTerm2 notifications, 'iterm2_with_bell': iTerm2 + bell, 'terminal_bell': terminal bell only, 'notifications_disabled': no notifications"
+    },
+    "theme": {
+      "type": "string",
+      "enum": ["dark", "light", "light-daltonized", "dark-daltonized"],
+      "description": "Color theme for the interface. Daltonized themes are optimized for color blindness."
+    },
+    "verbose": {
+      "type": "boolean",
+      "default": false,
+      "description": "Show full bash and command output in the interface"
+    },
+    "vimMode": {
+      "type": "boolean",
+      "default": false,
+      "description": "Enable vim mode keybindings in the interactive terminal interface"
+    }
+  },
+  "additionalProperties": false
+}

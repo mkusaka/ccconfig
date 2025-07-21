@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/mkusaka/ccconfig/schemas/claude-code-config.schema.json",
+  "title": "Claude Code Configuration Master Schema",
+  "description": "Complete JSON Schema for all Claude Code configuration options. Based on: all Claude Code documentation",
+  "type": "object",
+  "properties": {
+    "settingsFile": {
+      "$ref": "./settings.schema.json",
+      "description": "Configuration options for settings.json files"
+    },
+    "environmentVariables": {
+      "$ref": "./environment-variables.schema.json",
+      "description": "Environment variables for Claude Code"
+    },
+    "cliFlags": {
+      "$ref": "./cli-flags.schema.json",
+      "description": "Command-line interface flags"
+    },
+    "globalConfig": {
+      "$ref": "./global-config.schema.json",
+      "description": "Global configuration options (claude-code config)"
+    },
+    "mcpConfig": {
+      "$ref": "./mcp-config.schema.json",
+      "description": "MCP (Model Context Protocol) server configuration (.mcp.json files)"
+    }
+  },
+  "additionalProperties": false
+}
