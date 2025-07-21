@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/mkusaka/ccconfig/schemas/cli-flags.schema.json",
+  "$id": "https://raw.githubusercontent.com/mkusaka/ccconfig/main/schemas/cli-flags.schema.json",
   "title": "Claude Code CLI Flags Schema",
   "description": "JSON Schema for Claude Code command-line interface flags. Based on: cli-reference",
   "type": "object",

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/mkusaka/ccconfig/schemas/environment-variables.schema.json",
+  "$id": "https://raw.githubusercontent.com/mkusaka/ccconfig/main/schemas/environment-variables.schema.json",
   "title": "Claude Code Environment Variables Schema",
   "description": "JSON Schema for Claude Code environment variables. Based on: monitoring-usage, setup, amazon-bedrock, google-vertex-ai, mcp, settings",
   "type": "object",

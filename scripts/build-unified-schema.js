@@ -13,8 +13,27 @@ async function buildUnifiedSchema() {
     const masterSchemaPath = path.join(schemaDir, 'claude-code-config.schema.json');
     const unifiedSchema = await $RefParser.dereference(masterSchemaPath);
 
-    // Clean up $id references since they're no longer needed in unified version
-    delete unifiedSchema.$id;
+    // Recursively clean up all $id and $schema references
+    function cleanupIds(obj) {
+      if (typeof obj !== 'object' || obj === null) return;
+      
+      // Remove $id references
+      delete obj.$id;
+      
+      // Remove $schema except at the root level
+      if (obj !== unifiedSchema) {
+        delete obj.$schema;
+      }
+      
+      // Recursively clean nested objects
+      for (const key in obj) {
+        if (typeof obj[key] === 'object') {
+          cleanupIds(obj[key]);
+        }
+      }
+    }
+    
+    cleanupIds(unifiedSchema);
     
     // Write the unified schema
     fs.writeFileSync(

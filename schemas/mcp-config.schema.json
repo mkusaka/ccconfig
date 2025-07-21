@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/mkusaka/ccconfig/schemas/mcp-config.schema.json",
+  "$id": "https://raw.githubusercontent.com/mkusaka/ccconfig/main/schemas/mcp-config.schema.json",
   "title": "Claude Code MCP Configuration Schema",
   "description": "JSON Schema for .mcp.json MCP (Model Context Protocol) server configuration. Based on: mcp",
   "type": "object",

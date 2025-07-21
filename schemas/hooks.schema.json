@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/mkusaka/ccconfig/schemas/hooks.schema.json",
+  "$id": "https://raw.githubusercontent.com/mkusaka/ccconfig/main/schemas/hooks.schema.json",
   "title": "Claude Code Hooks Schema",
   "description": "JSON Schema for Claude Code hooks configuration. Based on: hooks",
   "type": "object",

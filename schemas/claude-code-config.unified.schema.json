@@ -6,8 +6,6 @@
   "properties": {
     "settingsFile": {
       "description": "Configuration options for settings.json files",
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "$id": "https://github.com/mkusaka/ccconfig/schemas/settings.schema.json",
       "title": "Claude Code Settings Schema",
       "type": "object",
       "properties": {
@@ -35,8 +33,6 @@
         },
         "permissions": {
           "description": "Permission rules for tool usage and file access.",
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "$id": "https://github.com/mkusaka/ccconfig/schemas/permissions.schema.json",
           "title": "Claude Code Permissions Schema",
           "type": "object",
           "properties": {
@@ -105,8 +101,6 @@
         },
         "hooks": {
           "description": "Custom commands to run before or after tool usage.",
-          "$schema": "http://json-schema.org/draft-07/schema#",
-          "$id": "https://github.com/mkusaka/ccconfig/schemas/hooks.schema.json",
           "title": "Claude Code Hooks Schema",
           "type": "object",
           "patternProperties": {
@@ -277,8 +271,6 @@
     },
     "environmentVariables": {
       "description": "Environment variables for Claude Code",
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "$id": "https://github.com/mkusaka/ccconfig/schemas/environment-variables.schema.json",
       "title": "Claude Code Environment Variables Schema",
       "type": "object",
       "properties": {
@@ -677,8 +669,6 @@
     },
     "cliFlags": {
       "description": "Command-line interface flags",
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "$id": "https://github.com/mkusaka/ccconfig/schemas/cli-flags.schema.json",
       "title": "Claude Code CLI Flags Schema",
       "type": "object",
       "properties": {
@@ -782,8 +772,6 @@
     },
     "globalConfig": {
       "description": "Global configuration options (claude-code config)",
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "$id": "https://github.com/mkusaka/ccconfig/schemas/global-config.schema.json",
       "title": "Claude Code Global Configuration Schema",
       "type": "object",
       "properties": {
@@ -828,8 +816,6 @@
     },
     "mcpConfig": {
       "description": "MCP (Model Context Protocol) server configuration (.mcp.json files)",
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "$id": "https://github.com/mkusaka/ccconfig/schemas/mcp-config.schema.json",
       "title": "Claude Code MCP Configuration Schema",
       "type": "object",
       "properties": {
