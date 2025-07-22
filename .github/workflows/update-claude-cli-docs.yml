@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - main
+      - 'fix/**'
     paths:
       - 'scripts/generate_claude_cli_docs.sh'
       - '.github/workflows/update-claude-cli-docs.yml'
