@@ -50,6 +50,51 @@ npm run build
 # Creates: schemas/claude-code-config.unified.schema.json
 ```
 
+## Shell Completions
+
+This repository includes automatically generated shell completions for Claude CLI.
+
+### Installation
+
+#### Bash
+
+```bash
+# Option 1: Source in your ~/.bashrc
+echo 'source /path/to/ccconfig/completions/claude.bash' >> ~/.bashrc
+
+# Option 2: Copy to system completion directory
+sudo cp completions/claude.bash /etc/bash_completion.d/
+```
+
+#### Zsh
+
+```bash
+# Option 1: Add to your fpath in ~/.zshrc
+echo 'fpath=(/path/to/ccconfig/completions $fpath)' >> ~/.zshrc
+echo 'autoload -Uz compinit && compinit' >> ~/.zshrc
+
+# Option 2: Copy to system completion directory
+sudo cp completions/_claude /usr/local/share/zsh/site-functions/
+```
+
+#### Fish
+
+```bash
+# Option 1: User installation
+cp completions/claude.fish ~/.config/fish/completions/
+
+# Option 2: System-wide installation
+sudo cp completions/claude.fish /usr/share/fish/vendor_completions.d/
+```
+
+### Updating Completions
+
+The completions are automatically regenerated daily via GitHub Actions. To manually regenerate:
+
+```bash
+./scripts/generate_claude_cli_completions.sh
+```
+
 ## Schema Organization
 
 ### 1. Modular Schemas (Default)
