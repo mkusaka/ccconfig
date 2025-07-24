@@ -313,7 +313,7 @@ mkdir -p ~/.zsh/completions
 cp _claude ~/.zsh/completions/
 
 # Add to ~/.zshrc if not already present
-echo 'fpath=(~/.zsh/completions $fpath)' >> ~/.zshrc
+echo 'fpath=(~/.zsh/completions \$fpath)' >> ~/.zshrc
 echo 'autoload -Uz compinit && compinit' >> ~/.zshrc
 \`\`\`
 
