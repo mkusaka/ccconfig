@@ -8,6 +8,7 @@ on:
   push:
     branches:
       - main
+      - fixci  # Temporary for testing
     paths:
       - 'scripts/generate_claude_cli_docs.sh'
       - 'scripts/generate_claude_cli_completions.sh'
