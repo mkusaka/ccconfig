@@ -2,8 +2,8 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2025-08-05 00:20:38 UTC
-Claude CLI Version: 1.0.68 (Claude Code)
+Generated on: 2025-08-06 00:20:26 UTC
+Claude CLI Version: 1.0.69 (Claude Code)
 
 ---
 
@@ -67,8 +67,8 @@ Options:
   --fallback-model <model>         Enable automatic fallback to specified model
                                    when default model is overloaded (only works
                                    with --print)
-  --settings <file>                Path to a settings JSON file to load
-                                   additional settings from
+  --settings <file-or-json>        Path to a settings JSON file or a JSON
+                                   string to load additional settings from
   --add-dir <directories...>       Additional directories to allow tool access
                                    to
   --ide                            Automatically connect to IDE on startup if
