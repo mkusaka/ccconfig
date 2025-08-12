@@ -2,8 +2,8 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2025-08-11 00:21:17 UTC
-Claude CLI Version: 1.0.72 (Claude Code)
+Generated on: 2025-08-12 00:18:46 UTC
+Claude CLI Version: 1.0.73 (Claude Code)
 
 ---
 
@@ -50,7 +50,8 @@ Options:
                                    to allow (e.g. "Bash(git:*) Edit")
   --disallowedTools <tools...>     Comma or space-separated list of tool names
                                    to deny (e.g. "Bash(git:*) Edit")
-  --mcp-config <file or string>    Load MCP servers from a JSON file or string
+  --mcp-config <configs...>        Load MCP servers from JSON files or strings
+                                   (space-separated)
   --append-system-prompt <prompt>  Append a system prompt to the default system
                                    prompt
   --permission-mode <mode>         Permission mode to use for the session
