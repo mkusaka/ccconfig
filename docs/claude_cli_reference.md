@@ -2,8 +2,8 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2025-08-12 00:18:46 UTC
-Claude CLI Version: 1.0.73 (Claude Code)
+Generated on: 2025-08-13 00:19:12 UTC
+Claude CLI Version: 1.0.77 (Claude Code)
 
 ---
 
@@ -247,9 +247,8 @@ Options:
   -t, --transport <transport>  Transport type (stdio, sse, http) (default:
                                "stdio")
   -e, --env <env...>           Set environment variables (e.g. -e KEY=value)
-  -H, --header <header...>     Set HTTP headers for SSE and HTTP transports
-                               (e.g. -H "X-Api-Key: abc123" -H "X-Custom:
-                               value")
+  -H, --header <header...>     Set WebSocket headers (e.g. -H "X-Api-Key:
+                               abc123" -H "X-Custom: value")
   -h, --help                   Display help for command
 ```
 
