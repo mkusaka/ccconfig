@@ -2,8 +2,8 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2025-08-22 00:18:04 UTC
-Claude CLI Version: 1.0.86 (Claude Code)
+Generated on: 2025-08-23 00:17:45 UTC
+Claude CLI Version: 1.0.89 (Claude Code)
 
 ---
 
@@ -31,7 +31,7 @@ Arguments:
   prompt                                            Your prompt
 
 Options:
-  -d, --debug                                       Enable debug mode
+  -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
   --verbose                                         Override verbose mode setting from config
   -p, --print                                       Print response and exit (useful for pipes)
   --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
