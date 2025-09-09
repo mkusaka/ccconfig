@@ -2,8 +2,8 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2025-09-08 00:18:40 UTC
-Claude CLI Version: 1.0.108 (Claude Code)
+Generated on: 2025-09-09 00:17:48 UTC
+Claude CLI Version: 1.0.109 (Claude Code)
 
 ---
 
@@ -35,6 +35,7 @@ Options:
   --verbose                                         Override verbose mode setting from config
   -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
   --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
+  --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
   --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
   --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
   --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
