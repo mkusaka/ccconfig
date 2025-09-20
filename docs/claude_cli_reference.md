@@ -2,8 +2,8 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2025-09-19 00:17:52 UTC
-Claude CLI Version: 1.0.117 (Claude Code)
+Generated on: 2025-09-20 00:16:44 UTC
+Claude CLI Version: 1.0.120 (Claude Code)
 
 ---
 
@@ -47,6 +47,7 @@ Options:
   --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "plan")
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [sessionId]                          Resume a conversation - provide a session ID or interactively select a conversation to resume
+  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-20250514').
   --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
   --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
