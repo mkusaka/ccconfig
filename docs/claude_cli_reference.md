@@ -2,8 +2,8 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2025-09-25 00:17:38 UTC
-Claude CLI Version: 1.0.123 (Claude Code)
+Generated on: 2025-09-26 00:17:34 UTC
+Claude CLI Version: 1.0.124 (Claude Code)
 
 ---
 
@@ -44,7 +44,7 @@ Options:
   --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "plan")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "sandboxBashMode", "bypassPermissions", "default", "plan")
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [sessionId]                          Resume a conversation - provide a session ID or interactively select a conversation to resume
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
