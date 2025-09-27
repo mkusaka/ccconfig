@@ -2,8 +2,8 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2025-09-26 00:17:34 UTC
-Claude CLI Version: 1.0.124 (Claude Code)
+Generated on: 2025-09-27 00:17:05 UTC
+Claude CLI Version: 1.0.127 (Claude Code)
 
 ---
 
@@ -55,6 +55,8 @@ Options:
   --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available
   --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations
   --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
+  --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
+  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
