@@ -2,8 +2,8 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2025-10-06 00:18:16 UTC
-Claude CLI Version: 2.0.8 (Claude Code)
+Generated on: 2025-10-07 00:17:45 UTC
+Claude CLI Version: 2.0.9 (Claude Code)
 
 ---
 
@@ -503,25 +503,12 @@ Options:
 #### `claude mcp get`
 
 ```
-============================================================
-Bun v1.2.19 (aad3abea) Linux x64 (baseline)
-Linux Kernel v6.11.0 | glibc v2.39
-CPU: sse42 popcnt avx avx2
-Args: "claude" "mcp" "get" "--help"
-Features: Bun.stderr(2) Bun.stdin(2) Bun.stdout(2) jsc standalone_executable 
-Builtins: "bun:main" "node:assert" "node:async_hooks" "node:buffer" "node:child_process" "node:constants" "node:crypto" "node:domain" "node:events" "node:fs" "node:fs/promises" "node:http" "node:https" "node:module" "node:net" "node:os" "node:path" "node:path/win32" "node:perf_hooks" "node:process" "node:stream" "node:string_decoder" "node:timers/promises" "node:tls" "node:tty" "node:url" "node:util" "node:zlib" "undici" "ws" 
-Elapsed: 332ms | User: 313ms | Sys: 41ms
-RSS: 1.07GB | Peak: 119.46MB | Commit: 1.07GB | Faults: 0 | Machine: 16.77GB
+Usage: claude mcp get [options] <name>
 
-panic(main thread): Segmentation fault at address 0x0
-oh no: Bun has crashed. This indicates a bug in Bun, not your code.
+Get details about an MCP server
 
-To send a redacted crash report to Bun's team,
-please file a GitHub issue using the link below:
-
- https://bun.report/1.2.19/B_1aad3abeAz//v//DkoyhrE+ypRmxx89D_ipnr9Dipnr9Dipnr9Dipnr9Dipnr9D_A2AA
-
-./scripts/generate_claude_cli_docs.sh: line 92:  3026 Illegal instruction     (core dumped) claude mcp get --help
+Options:
+  -h, --help  Display help for command
 ```
 
 #### `claude mcp add-json`
