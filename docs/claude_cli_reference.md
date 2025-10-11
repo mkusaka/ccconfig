@@ -2,8 +2,8 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2025-10-10 00:17:55 UTC
-Claude CLI Version: 2.0.13 (Claude Code)
+Generated on: 2025-10-11 00:16:47 UTC
+Claude CLI Version: 2.0.14 (Claude Code)
 
 ---
 
@@ -43,6 +43,7 @@ Options:
   --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
   --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
+  --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
   --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "plan")
   -c, --continue                                    Continue the most recent conversation
@@ -96,6 +97,7 @@ Options:
   --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
   --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
+  --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
   --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "plan")
   -c, --continue                                    Continue the most recent conversation
@@ -147,6 +149,7 @@ Options:
   --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
   --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
+  --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
   --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "plan")
   -c, --continue                                    Continue the most recent conversation
@@ -198,6 +201,7 @@ Options:
   --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
   --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
+  --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
   --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "plan")
   -c, --continue                                    Continue the most recent conversation
@@ -249,6 +253,7 @@ Options:
   --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
   --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
+  --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
   --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "plan")
   -c, --continue                                    Continue the most recent conversation
@@ -300,6 +305,7 @@ Options:
   --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
   --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
+  --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
   --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "plan")
   -c, --continue                                    Continue the most recent conversation
@@ -351,6 +357,7 @@ Options:
   --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
   --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
+  --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
   --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "plan")
   -c, --continue                                    Continue the most recent conversation
@@ -402,6 +409,7 @@ Options:
   --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
   --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
+  --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
   --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "plan")
   -c, --continue                                    Continue the most recent conversation
@@ -453,6 +461,7 @@ Options:
   --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
   --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
+  --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
   --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "plan")
   -c, --continue                                    Continue the most recent conversation
