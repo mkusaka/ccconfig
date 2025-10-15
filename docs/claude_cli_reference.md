@@ -2,8 +2,8 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2025-10-14 00:17:28 UTC
-Claude CLI Version: 2.0.14 (Claude Code)
+Generated on: 2025-10-15 00:18:02 UTC
+Claude CLI Version: 2.0.15 (Claude Code)
 
 ---
 
@@ -503,7 +503,17 @@ Options:
 
 Commands:
   serve [options]                                Start the Claude Code MCP server
-  add [options] <name> <commandOrUrl> [args...]  Add a server
+  add [options] <name> <commandOrUrl> [args...]  Add an MCP server to Claude Code.
+  
+  Examples:
+    # Add HTTP server:
+    claude mcp add --transport http sentry https://mcp.sentry.dev/mcp
+  
+    # Add SSE server:
+    claude mcp add --transport sse asana https://mcp.asana.com/sse
+  
+    # Add stdio server:
+    claude mcp add --transport stdio airtable --env AIRTABLE_API_KEY=YOUR_KEY -- npx -y airtable-mcp-server
   remove [options] <name>                        Remove an MCP server
   list                                           List configured MCP servers
   get <name>                                     Get details about an MCP server
@@ -531,17 +541,59 @@ Options:
 ```
 Usage: claude mcp add [options] <name> <commandOrUrl> [args...]
 
-Add a server
+Add an MCP server to Claude Code.
+
+Examples:
+  # Add HTTP server:
+  claude mcp add --transport http sentry https://mcp.sentry.dev/mcp
+
+  # Add SSE server:
+  claude mcp add --transport sse asana https://mcp.asana.com/sse
+
+  # Add stdio server:
+  claude mcp add --transport stdio airtable --env AIRTABLE_API_KEY=YOUR_KEY -- npx -y airtable-mcp-server
 
 Options:
   -s, --scope <scope>          Configuration scope (local, user, or project)
                                (default: "local")
-  -t, --transport <transport>  Transport type (stdio, sse, http) (default:
-                               "stdio")
+  -t, --transport <transport>  Transport type (stdio, sse, http). Defaults to
+                               stdio if not specified.
   -e, --env <env...>           Set environment variables (e.g. -e KEY=value)
   -H, --header <header...>     Set WebSocket headers (e.g. -H "X-Api-Key:
                                abc123" -H "X-Custom: value")
   -h, --help                   Display help for command
+```
+
+#### `claude mcp Examples:`
+
+```
+Usage: claude mcp [options] [command]
+
+Configure and manage MCP servers
+
+Options:
+  -h, --help                                     Display help for command
+
+Commands:
+  serve [options]                                Start the Claude Code MCP server
+  add [options] <name> <commandOrUrl> [args...]  Add an MCP server to Claude Code.
+  
+  Examples:
+    # Add HTTP server:
+    claude mcp add --transport http sentry https://mcp.sentry.dev/mcp
+  
+    # Add SSE server:
+    claude mcp add --transport sse asana https://mcp.asana.com/sse
+  
+    # Add stdio server:
+    claude mcp add --transport stdio airtable --env AIRTABLE_API_KEY=YOUR_KEY -- npx -y airtable-mcp-server
+  remove [options] <name>                        Remove an MCP server
+  list                                           List configured MCP servers
+  get <name>                                     Get details about an MCP server
+  add-json [options] <name> <json>               Add an MCP server (stdio or SSE) with a JSON string
+  add-from-claude-desktop [options]              Import MCP servers from Claude Desktop (Mac and WSL only)
+  reset-project-choices                          Reset all approved and rejected project-scoped (.mcp.json) servers within this project
+  help [command]                                 display help for command
 ```
 
 #### `claude mcp remove`
@@ -629,7 +681,17 @@ Options:
 
 Commands:
   serve [options]                                Start the Claude Code MCP server
-  add [options] <name> <commandOrUrl> [args...]  Add a server
+  add [options] <name> <commandOrUrl> [args...]  Add an MCP server to Claude Code.
+  
+  Examples:
+    # Add HTTP server:
+    claude mcp add --transport http sentry https://mcp.sentry.dev/mcp
+  
+    # Add SSE server:
+    claude mcp add --transport sse asana https://mcp.asana.com/sse
+  
+    # Add stdio server:
+    claude mcp add --transport stdio airtable --env AIRTABLE_API_KEY=YOUR_KEY -- npx -y airtable-mcp-server
   remove [options] <name>                        Remove an MCP server
   list                                           List configured MCP servers
   get <name>                                     Get details about an MCP server
