@@ -2,8 +2,8 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2025-10-21 00:18:16 UTC
-Claude CLI Version: 2.0.24 (Claude Code)
+Generated on: 2025-10-22 00:19:05 UTC
+Claude CLI Version: 2.0.25 (Claude Code)
 
 ---
 
@@ -58,6 +58,7 @@ Options:
   --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
   --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
+  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -112,6 +113,7 @@ Options:
   --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
   --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
+  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -164,6 +166,7 @@ Options:
   --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
   --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
+  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -216,6 +219,7 @@ Options:
   --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
   --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
+  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -268,6 +272,7 @@ Options:
   --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
   --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
+  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -320,6 +325,7 @@ Options:
   --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
   --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
+  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -372,6 +378,7 @@ Options:
   --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
   --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
+  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -424,6 +431,7 @@ Options:
   --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
   --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
+  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -476,6 +484,7 @@ Options:
   --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
   --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
+  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
