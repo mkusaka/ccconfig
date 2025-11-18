@@ -2,7 +2,7 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2025-11-17 00:19:32 UTC
+Generated on: 2025-11-18 00:19:41 UTC
 Claude CLI Version: 2.0.42 (Claude Code)
 
 ---
