@@ -2,8 +2,8 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2025-11-18 00:19:41 UTC
-Claude CLI Version: 2.0.42 (Claude Code)
+Generated on: 2025-11-19 00:19:54 UTC
+Claude CLI Version: 2.0.45 (Claude Code)
 
 ---
 
@@ -35,6 +35,7 @@ Options:
   --verbose                                         Override verbose mode setting from config
   -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
   --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
+  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
   --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
   --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
   --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
@@ -47,7 +48,7 @@ Options:
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
   --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "plan")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [sessionId]                          Resume a conversation - provide a session ID or interactively select a conversation to resume
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -92,6 +93,7 @@ Options:
   --verbose                                         Override verbose mode setting from config
   -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
   --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
+  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
   --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
   --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
   --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
@@ -104,7 +106,7 @@ Options:
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
   --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "plan")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [sessionId]                          Resume a conversation - provide a session ID or interactively select a conversation to resume
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -147,6 +149,7 @@ Options:
   --verbose                                         Override verbose mode setting from config
   -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
   --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
+  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
   --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
   --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
   --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
@@ -159,7 +162,7 @@ Options:
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
   --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "plan")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [sessionId]                          Resume a conversation - provide a session ID or interactively select a conversation to resume
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -202,6 +205,7 @@ Options:
   --verbose                                         Override verbose mode setting from config
   -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
   --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
+  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
   --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
   --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
   --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
@@ -214,7 +218,7 @@ Options:
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
   --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "plan")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [sessionId]                          Resume a conversation - provide a session ID or interactively select a conversation to resume
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -257,6 +261,7 @@ Options:
   --verbose                                         Override verbose mode setting from config
   -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
   --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
+  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
   --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
   --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
   --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
@@ -269,7 +274,7 @@ Options:
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
   --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "plan")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [sessionId]                          Resume a conversation - provide a session ID or interactively select a conversation to resume
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -312,6 +317,7 @@ Options:
   --verbose                                         Override verbose mode setting from config
   -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
   --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
+  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
   --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
   --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
   --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
@@ -324,7 +330,7 @@ Options:
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
   --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "plan")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [sessionId]                          Resume a conversation - provide a session ID or interactively select a conversation to resume
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -367,6 +373,7 @@ Options:
   --verbose                                         Override verbose mode setting from config
   -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
   --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
+  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
   --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
   --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
   --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
@@ -379,7 +386,7 @@ Options:
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
   --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "plan")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [sessionId]                          Resume a conversation - provide a session ID or interactively select a conversation to resume
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -422,6 +429,7 @@ Options:
   --verbose                                         Override verbose mode setting from config
   -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
   --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
+  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
   --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
   --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
   --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
@@ -434,7 +442,7 @@ Options:
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
   --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "plan")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [sessionId]                          Resume a conversation - provide a session ID or interactively select a conversation to resume
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -477,6 +485,7 @@ Options:
   --verbose                                         Override verbose mode setting from config
   -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
   --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
+  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
   --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
   --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
   --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
@@ -489,7 +498,7 @@ Options:
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
   --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "plan")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [sessionId]                          Resume a conversation - provide a session ID or interactively select a conversation to resume
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
