@@ -2,8 +2,8 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2025-12-03 00:19:12 UTC
-Claude CLI Version: 2.0.56 (Claude Code)
+Generated on: 2025-12-04 00:19:52 UTC
+Claude CLI Version: 2.0.58 (Claude Code)
 
 ---
 
@@ -50,9 +50,10 @@ Options:
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
   --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
-  -r, --resume [sessionId]                          Resume a conversation - provide a session ID or interactively select a conversation to resume
+  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
+  --betas <betas...>                                Beta headers to include in API requests (API key users only)
   --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
   --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
   --add-dir <directories...>                        Additional directories to allow tool access to
@@ -108,9 +109,10 @@ Options:
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
   --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
-  -r, --resume [sessionId]                          Resume a conversation - provide a session ID or interactively select a conversation to resume
+  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
+  --betas <betas...>                                Beta headers to include in API requests (API key users only)
   --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
   --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
   --add-dir <directories...>                        Additional directories to allow tool access to
@@ -164,9 +166,10 @@ Options:
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
   --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
-  -r, --resume [sessionId]                          Resume a conversation - provide a session ID or interactively select a conversation to resume
+  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
+  --betas <betas...>                                Beta headers to include in API requests (API key users only)
   --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
   --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
   --add-dir <directories...>                        Additional directories to allow tool access to
@@ -220,9 +223,10 @@ Options:
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
   --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
-  -r, --resume [sessionId]                          Resume a conversation - provide a session ID or interactively select a conversation to resume
+  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
+  --betas <betas...>                                Beta headers to include in API requests (API key users only)
   --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
   --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
   --add-dir <directories...>                        Additional directories to allow tool access to
@@ -276,9 +280,10 @@ Options:
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
   --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
-  -r, --resume [sessionId]                          Resume a conversation - provide a session ID or interactively select a conversation to resume
+  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
+  --betas <betas...>                                Beta headers to include in API requests (API key users only)
   --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
   --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
   --add-dir <directories...>                        Additional directories to allow tool access to
@@ -332,9 +337,10 @@ Options:
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
   --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
-  -r, --resume [sessionId]                          Resume a conversation - provide a session ID or interactively select a conversation to resume
+  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
+  --betas <betas...>                                Beta headers to include in API requests (API key users only)
   --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
   --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
   --add-dir <directories...>                        Additional directories to allow tool access to
@@ -388,9 +394,10 @@ Options:
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
   --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
-  -r, --resume [sessionId]                          Resume a conversation - provide a session ID or interactively select a conversation to resume
+  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
+  --betas <betas...>                                Beta headers to include in API requests (API key users only)
   --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
   --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
   --add-dir <directories...>                        Additional directories to allow tool access to
@@ -444,9 +451,10 @@ Options:
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
   --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
-  -r, --resume [sessionId]                          Resume a conversation - provide a session ID or interactively select a conversation to resume
+  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
+  --betas <betas...>                                Beta headers to include in API requests (API key users only)
   --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
   --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
   --add-dir <directories...>                        Additional directories to allow tool access to
@@ -500,9 +508,10 @@ Options:
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
   --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
-  -r, --resume [sessionId]                          Resume a conversation - provide a session ID or interactively select a conversation to resume
+  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
+  --betas <betas...>                                Beta headers to include in API requests (API key users only)
   --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
   --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
   --add-dir <directories...>                        Additional directories to allow tool access to
