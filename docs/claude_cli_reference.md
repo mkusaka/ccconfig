@@ -2,8 +2,8 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2025-12-05 00:19:36 UTC
-Claude CLI Version: 2.0.59 (Claude Code)
+Generated on: 2025-12-06 00:18:30 UTC
+Claude CLI Version: 2.0.60 (Claude Code)
 
 ---
 
@@ -64,6 +64,7 @@ Options:
   --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
   --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
+  --disable-slash-commands                          Disable all slash commands
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -123,6 +124,7 @@ Options:
   --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
   --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
+  --disable-slash-commands                          Disable all slash commands
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -180,6 +182,7 @@ Options:
   --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
   --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
+  --disable-slash-commands                          Disable all slash commands
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -237,6 +240,7 @@ Options:
   --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
   --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
+  --disable-slash-commands                          Disable all slash commands
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -294,6 +298,7 @@ Options:
   --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
   --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
+  --disable-slash-commands                          Disable all slash commands
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -351,6 +356,7 @@ Options:
   --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
   --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
+  --disable-slash-commands                          Disable all slash commands
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -408,6 +414,7 @@ Options:
   --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
   --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
+  --disable-slash-commands                          Disable all slash commands
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -465,6 +472,7 @@ Options:
   --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
   --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
+  --disable-slash-commands                          Disable all slash commands
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -736,6 +744,7 @@ Options:
   --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
   --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
+  --disable-slash-commands                          Disable all slash commands
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
