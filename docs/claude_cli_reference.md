@@ -2,8 +2,8 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2025-12-10 00:20:28 UTC
-Claude CLI Version: 2.0.62 (Claude Code)
+Generated on: 2025-12-11 00:20:11 UTC
+Claude CLI Version: 2.0.64 (Claude Code)
 
 ---
 
@@ -52,6 +52,7 @@ Options:
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
+  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
   --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
   --betas <betas...>                                Beta headers to include in API requests (API key users only)
@@ -112,6 +113,7 @@ Options:
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
+  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
   --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
   --betas <betas...>                                Beta headers to include in API requests (API key users only)
@@ -170,6 +172,7 @@ Options:
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
+  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
   --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
   --betas <betas...>                                Beta headers to include in API requests (API key users only)
@@ -228,6 +231,7 @@ Options:
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
+  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
   --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
   --betas <betas...>                                Beta headers to include in API requests (API key users only)
@@ -286,6 +290,7 @@ Options:
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
+  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
   --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
   --betas <betas...>                                Beta headers to include in API requests (API key users only)
@@ -344,6 +349,7 @@ Options:
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
+  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
   --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
   --betas <betas...>                                Beta headers to include in API requests (API key users only)
@@ -402,6 +408,7 @@ Options:
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
+  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
   --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
   --betas <betas...>                                Beta headers to include in API requests (API key users only)
@@ -460,6 +467,7 @@ Options:
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
+  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
   --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
   --betas <betas...>                                Beta headers to include in API requests (API key users only)
@@ -732,6 +740,7 @@ Options:
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
+  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
   --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
   --betas <betas...>                                Beta headers to include in API requests (API key users only)
