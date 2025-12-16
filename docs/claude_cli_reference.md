@@ -2,8 +2,8 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2025-12-15 00:21:38 UTC
-Claude CLI Version: 2.0.69 (Claude Code)
+Generated on: 2025-12-16 00:20:34 UTC
+Claude CLI Version: 2.0.70 (Claude Code)
 
 ---
 
@@ -49,7 +49,7 @@ Options:
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
   --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -111,7 +111,7 @@ Options:
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
   --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -171,7 +171,7 @@ Options:
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
   --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -231,7 +231,7 @@ Options:
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
   --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -291,7 +291,7 @@ Options:
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
   --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -351,7 +351,7 @@ Options:
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
   --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -411,7 +411,7 @@ Options:
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
   --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -471,7 +471,7 @@ Options:
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
   --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -745,7 +745,7 @@ Options:
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
   --system-prompt <prompt>                          System prompt to use for the session
   --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "dontAsk", "plan")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
   -c, --continue                                    Continue the most recent conversation
   -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
