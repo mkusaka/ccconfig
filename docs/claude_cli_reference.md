@@ -2,8 +2,8 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2025-12-16 00:20:34 UTC
-Claude CLI Version: 2.0.70 (Claude Code)
+Generated on: 2025-12-17 00:19:38 UTC
+Claude CLI Version: 2.0.71 (Claude Code)
 
 ---
 
@@ -67,6 +67,8 @@ Options:
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
   --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
   --disable-slash-commands                          Disable all slash commands
+  --chrome                                          Enable Claude in Chrome integration
+  --no-chrome                                       Disable Claude in Chrome integration
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -129,6 +131,8 @@ Options:
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
   --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
   --disable-slash-commands                          Disable all slash commands
+  --chrome                                          Enable Claude in Chrome integration
+  --no-chrome                                       Disable Claude in Chrome integration
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -189,6 +193,8 @@ Options:
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
   --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
   --disable-slash-commands                          Disable all slash commands
+  --chrome                                          Enable Claude in Chrome integration
+  --no-chrome                                       Disable Claude in Chrome integration
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -249,6 +255,8 @@ Options:
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
   --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
   --disable-slash-commands                          Disable all slash commands
+  --chrome                                          Enable Claude in Chrome integration
+  --no-chrome                                       Disable Claude in Chrome integration
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -309,6 +317,8 @@ Options:
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
   --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
   --disable-slash-commands                          Disable all slash commands
+  --chrome                                          Enable Claude in Chrome integration
+  --no-chrome                                       Disable Claude in Chrome integration
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -369,6 +379,8 @@ Options:
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
   --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
   --disable-slash-commands                          Disable all slash commands
+  --chrome                                          Enable Claude in Chrome integration
+  --no-chrome                                       Disable Claude in Chrome integration
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -429,6 +441,8 @@ Options:
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
   --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
   --disable-slash-commands                          Disable all slash commands
+  --chrome                                          Enable Claude in Chrome integration
+  --no-chrome                                       Disable Claude in Chrome integration
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -489,6 +503,8 @@ Options:
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
   --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
   --disable-slash-commands                          Disable all slash commands
+  --chrome                                          Enable Claude in Chrome integration
+  --no-chrome                                       Disable Claude in Chrome integration
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
@@ -763,6 +779,8 @@ Options:
   --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
   --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
   --disable-slash-commands                          Disable all slash commands
+  --chrome                                          Enable Claude in Chrome integration
+  --no-chrome                                       Disable Claude in Chrome integration
   -v, --version                                     Output the version number
   -h, --help                                        Display help for command
 
