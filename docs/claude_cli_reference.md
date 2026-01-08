@@ -2,8 +2,8 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2026-01-07 00:19:30 UTC
-Claude CLI Version: 2.0.76 (Claude Code)
+Generated on: 2026-01-08 00:21:03 UTC
+Claude CLI Version: 2.1.1 (Claude Code)
 
 ---
 
@@ -31,54 +31,54 @@ Arguments:
   prompt                                            Your prompt
 
 Options:
+  --add-dir <directories...>                        Additional directories to allow tool access to
+  --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
+  --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
+  --allow-dangerously-skip-permissions              Enable bypassing all permission checks as an option, without it being enabled by default. Recommended only for sandboxes with no internet access.
+  --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
+  --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
+  --betas <betas...>                                Beta headers to include in API requests (API key users only)
+  --chrome                                          Enable Claude in Chrome integration
+  -c, --continue                                    Continue the most recent conversation
+  --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
   -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
-  --verbose                                         Override verbose mode setting from config
-  -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
-  --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
-  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
+  --disable-slash-commands                          Disable all slash commands
+  --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
+  --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
+  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
+  -h, --help                                        Display help for command
+  --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available
   --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
   --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
-  --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
-  --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
-  --allow-dangerously-skip-permissions              Enable bypassing all permission checks as an option, without it being enabled by default. Recommended only for sandboxes with no internet access.
+  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
   --max-budget-usd <amount>                         Maximum dollar amount to spend on API calls (only works with --print)
-  --replay-user-messages                            Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)
-  --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
-  --tools <tools...>                                Specify the list of available tools from the built-in set. Use "" to disable all tools, "default" to use all tools, or specify tool names (e.g. "Bash,Edit,Read"). Only works with --print mode.
-  --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
-  --system-prompt <prompt>                          System prompt to use for the session
-  --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
-  -c, --continue                                    Continue the most recent conversation
-  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
-  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
-  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
+  --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
-  --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
-  --betas <betas...>                                Beta headers to include in API requests (API key users only)
-  --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
-  --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
-  --add-dir <directories...>                        Additional directories to allow tool access to
-  --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available
-  --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations
-  --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
-  --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
-  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
-  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
-  --disable-slash-commands                          Disable all slash commands
-  --chrome                                          Enable Claude in Chrome integration
   --no-chrome                                       Disable Claude in Chrome integration
+  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
+  --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
+  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
+  -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
+  --replay-user-messages                            Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)
+  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
+  --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
+  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
+  --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
+  --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations
+  --system-prompt <prompt>                          System prompt to use for the session
+  --tools <tools...>                                Specify the list of available tools from the built-in set. Use "" to disable all tools, "default" to use all tools, or specify tool names (e.g. "Bash,Edit,Read").
+  --verbose                                         Override verbose mode setting from config
   -v, --version                                     Output the version number
-  -h, --help                                        Display help for command
 
 Commands:
+  doctor                                            Check the health of your Claude Code auto-updater
+  install [options] [target]                        Install Claude Code native build. Use [target] to specify version (stable, latest, or specific version)
   mcp                                               Configure and manage MCP servers
   plugin                                            Manage Claude Code plugins
   setup-token                                       Set up a long-lived authentication token (requires Claude subscription)
-  doctor                                            Check the health of your Claude Code auto-updater
   update                                            Check for updates and install if available
-  install [options] [target]                        Install Claude Code native build. Use [target] to specify version (stable, latest, or specific version)
 ```
 
 ## Config Commands
@@ -95,240 +95,54 @@ Arguments:
   prompt                                            Your prompt
 
 Options:
+  --add-dir <directories...>                        Additional directories to allow tool access to
+  --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
+  --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
+  --allow-dangerously-skip-permissions              Enable bypassing all permission checks as an option, without it being enabled by default. Recommended only for sandboxes with no internet access.
+  --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
+  --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
+  --betas <betas...>                                Beta headers to include in API requests (API key users only)
+  --chrome                                          Enable Claude in Chrome integration
+  -c, --continue                                    Continue the most recent conversation
+  --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
   -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
-  --verbose                                         Override verbose mode setting from config
-  -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
-  --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
-  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
+  --disable-slash-commands                          Disable all slash commands
+  --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
+  --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
+  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
+  -h, --help                                        Display help for command
+  --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available
   --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
   --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
-  --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
-  --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
-  --allow-dangerously-skip-permissions              Enable bypassing all permission checks as an option, without it being enabled by default. Recommended only for sandboxes with no internet access.
+  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
   --max-budget-usd <amount>                         Maximum dollar amount to spend on API calls (only works with --print)
-  --replay-user-messages                            Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)
-  --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
-  --tools <tools...>                                Specify the list of available tools from the built-in set. Use "" to disable all tools, "default" to use all tools, or specify tool names (e.g. "Bash,Edit,Read"). Only works with --print mode.
-  --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
-  --system-prompt <prompt>                          System prompt to use for the session
-  --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
-  -c, --continue                                    Continue the most recent conversation
-  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
-  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
-  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
+  --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
-  --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
-  --betas <betas...>                                Beta headers to include in API requests (API key users only)
-  --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
-  --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
-  --add-dir <directories...>                        Additional directories to allow tool access to
-  --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available
-  --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations
-  --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
-  --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
-  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
-  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
-  --disable-slash-commands                          Disable all slash commands
-  --chrome                                          Enable Claude in Chrome integration
   --no-chrome                                       Disable Claude in Chrome integration
+  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
+  --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
+  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
+  -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
+  --replay-user-messages                            Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)
+  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
+  --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
+  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
+  --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
+  --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations
+  --system-prompt <prompt>                          System prompt to use for the session
+  --tools <tools...>                                Specify the list of available tools from the built-in set. Use "" to disable all tools, "default" to use all tools, or specify tool names (e.g. "Bash,Edit,Read").
+  --verbose                                         Override verbose mode setting from config
   -v, --version                                     Output the version number
-  -h, --help                                        Display help for command
 
 Commands:
+  doctor                                            Check the health of your Claude Code auto-updater
+  install [options] [target]                        Install Claude Code native build. Use [target] to specify version (stable, latest, or specific version)
   mcp                                               Configure and manage MCP servers
   plugin                                            Manage Claude Code plugins
   setup-token                                       Set up a long-lived authentication token (requires Claude subscription)
-  doctor                                            Check the health of your Claude Code auto-updater
   update                                            Check for updates and install if available
-  install [options] [target]                        Install Claude Code native build. Use [target] to specify version (stable, latest, or specific version)
-```
-
-#### `claude config mcp`
-
-```
-Usage: claude [options] [command] [prompt]
-
-Claude Code - starts an interactive session by default, use -p/--print for
-non-interactive output
-
-Arguments:
-  prompt                                            Your prompt
-
-Options:
-  -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
-  --verbose                                         Override verbose mode setting from config
-  -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
-  --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
-  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
-  --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
-  --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
-  --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
-  --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
-  --allow-dangerously-skip-permissions              Enable bypassing all permission checks as an option, without it being enabled by default. Recommended only for sandboxes with no internet access.
-  --max-budget-usd <amount>                         Maximum dollar amount to spend on API calls (only works with --print)
-  --replay-user-messages                            Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)
-  --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
-  --tools <tools...>                                Specify the list of available tools from the built-in set. Use "" to disable all tools, "default" to use all tools, or specify tool names (e.g. "Bash,Edit,Read"). Only works with --print mode.
-  --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
-  --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
-  --system-prompt <prompt>                          System prompt to use for the session
-  --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
-  -c, --continue                                    Continue the most recent conversation
-  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
-  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
-  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
-  --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
-  --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
-  --betas <betas...>                                Beta headers to include in API requests (API key users only)
-  --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
-  --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
-  --add-dir <directories...>                        Additional directories to allow tool access to
-  --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available
-  --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations
-  --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
-  --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
-  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
-  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
-  --disable-slash-commands                          Disable all slash commands
-  --chrome                                          Enable Claude in Chrome integration
-  --no-chrome                                       Disable Claude in Chrome integration
-  -v, --version                                     Output the version number
-  -h, --help                                        Display help for command
-
-Commands:
-  mcp                                               Configure and manage MCP servers
-  plugin                                            Manage Claude Code plugins
-  setup-token                                       Set up a long-lived authentication token (requires Claude subscription)
-  doctor                                            Check the health of your Claude Code auto-updater
-  update                                            Check for updates and install if available
-  install [options] [target]                        Install Claude Code native build. Use [target] to specify version (stable, latest, or specific version)
-```
-
-#### `claude config plugin`
-
-```
-Usage: claude [options] [command] [prompt]
-
-Claude Code - starts an interactive session by default, use -p/--print for
-non-interactive output
-
-Arguments:
-  prompt                                            Your prompt
-
-Options:
-  -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
-  --verbose                                         Override verbose mode setting from config
-  -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
-  --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
-  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
-  --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
-  --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
-  --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
-  --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
-  --allow-dangerously-skip-permissions              Enable bypassing all permission checks as an option, without it being enabled by default. Recommended only for sandboxes with no internet access.
-  --max-budget-usd <amount>                         Maximum dollar amount to spend on API calls (only works with --print)
-  --replay-user-messages                            Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)
-  --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
-  --tools <tools...>                                Specify the list of available tools from the built-in set. Use "" to disable all tools, "default" to use all tools, or specify tool names (e.g. "Bash,Edit,Read"). Only works with --print mode.
-  --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
-  --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
-  --system-prompt <prompt>                          System prompt to use for the session
-  --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
-  -c, --continue                                    Continue the most recent conversation
-  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
-  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
-  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
-  --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
-  --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
-  --betas <betas...>                                Beta headers to include in API requests (API key users only)
-  --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
-  --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
-  --add-dir <directories...>                        Additional directories to allow tool access to
-  --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available
-  --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations
-  --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
-  --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
-  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
-  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
-  --disable-slash-commands                          Disable all slash commands
-  --chrome                                          Enable Claude in Chrome integration
-  --no-chrome                                       Disable Claude in Chrome integration
-  -v, --version                                     Output the version number
-  -h, --help                                        Display help for command
-
-Commands:
-  mcp                                               Configure and manage MCP servers
-  plugin                                            Manage Claude Code plugins
-  setup-token                                       Set up a long-lived authentication token (requires Claude subscription)
-  doctor                                            Check the health of your Claude Code auto-updater
-  update                                            Check for updates and install if available
-  install [options] [target]                        Install Claude Code native build. Use [target] to specify version (stable, latest, or specific version)
-```
-
-#### `claude config setup-token`
-
-```
-Usage: claude [options] [command] [prompt]
-
-Claude Code - starts an interactive session by default, use -p/--print for
-non-interactive output
-
-Arguments:
-  prompt                                            Your prompt
-
-Options:
-  -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
-  --verbose                                         Override verbose mode setting from config
-  -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
-  --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
-  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
-  --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
-  --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
-  --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
-  --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
-  --allow-dangerously-skip-permissions              Enable bypassing all permission checks as an option, without it being enabled by default. Recommended only for sandboxes with no internet access.
-  --max-budget-usd <amount>                         Maximum dollar amount to spend on API calls (only works with --print)
-  --replay-user-messages                            Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)
-  --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
-  --tools <tools...>                                Specify the list of available tools from the built-in set. Use "" to disable all tools, "default" to use all tools, or specify tool names (e.g. "Bash,Edit,Read"). Only works with --print mode.
-  --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
-  --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
-  --system-prompt <prompt>                          System prompt to use for the session
-  --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
-  -c, --continue                                    Continue the most recent conversation
-  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
-  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
-  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
-  --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
-  --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
-  --betas <betas...>                                Beta headers to include in API requests (API key users only)
-  --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
-  --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
-  --add-dir <directories...>                        Additional directories to allow tool access to
-  --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available
-  --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations
-  --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
-  --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
-  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
-  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
-  --disable-slash-commands                          Disable all slash commands
-  --chrome                                          Enable Claude in Chrome integration
-  --no-chrome                                       Disable Claude in Chrome integration
-  -v, --version                                     Output the version number
-  -h, --help                                        Display help for command
-
-Commands:
-  mcp                                               Configure and manage MCP servers
-  plugin                                            Manage Claude Code plugins
-  setup-token                                       Set up a long-lived authentication token (requires Claude subscription)
-  doctor                                            Check the health of your Claude Code auto-updater
-  update                                            Check for updates and install if available
-  install [options] [target]                        Install Claude Code native build. Use [target] to specify version (stable, latest, or specific version)
 ```
 
 #### `claude config doctor`
@@ -343,116 +157,54 @@ Arguments:
   prompt                                            Your prompt
 
 Options:
+  --add-dir <directories...>                        Additional directories to allow tool access to
+  --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
+  --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
+  --allow-dangerously-skip-permissions              Enable bypassing all permission checks as an option, without it being enabled by default. Recommended only for sandboxes with no internet access.
+  --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
+  --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
+  --betas <betas...>                                Beta headers to include in API requests (API key users only)
+  --chrome                                          Enable Claude in Chrome integration
+  -c, --continue                                    Continue the most recent conversation
+  --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
   -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
-  --verbose                                         Override verbose mode setting from config
-  -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
-  --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
-  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
+  --disable-slash-commands                          Disable all slash commands
+  --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
+  --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
+  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
+  -h, --help                                        Display help for command
+  --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available
   --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
   --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
-  --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
-  --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
-  --allow-dangerously-skip-permissions              Enable bypassing all permission checks as an option, without it being enabled by default. Recommended only for sandboxes with no internet access.
+  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
   --max-budget-usd <amount>                         Maximum dollar amount to spend on API calls (only works with --print)
-  --replay-user-messages                            Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)
-  --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
-  --tools <tools...>                                Specify the list of available tools from the built-in set. Use "" to disable all tools, "default" to use all tools, or specify tool names (e.g. "Bash,Edit,Read"). Only works with --print mode.
-  --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
-  --system-prompt <prompt>                          System prompt to use for the session
-  --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
-  -c, --continue                                    Continue the most recent conversation
-  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
-  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
-  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
+  --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
-  --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
-  --betas <betas...>                                Beta headers to include in API requests (API key users only)
-  --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
-  --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
-  --add-dir <directories...>                        Additional directories to allow tool access to
-  --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available
-  --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations
-  --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
-  --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
-  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
-  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
-  --disable-slash-commands                          Disable all slash commands
-  --chrome                                          Enable Claude in Chrome integration
   --no-chrome                                       Disable Claude in Chrome integration
+  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
+  --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
+  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
+  -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
+  --replay-user-messages                            Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)
+  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
+  --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
+  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
+  --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
+  --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations
+  --system-prompt <prompt>                          System prompt to use for the session
+  --tools <tools...>                                Specify the list of available tools from the built-in set. Use "" to disable all tools, "default" to use all tools, or specify tool names (e.g. "Bash,Edit,Read").
+  --verbose                                         Override verbose mode setting from config
   -v, --version                                     Output the version number
-  -h, --help                                        Display help for command
 
 Commands:
+  doctor                                            Check the health of your Claude Code auto-updater
+  install [options] [target]                        Install Claude Code native build. Use [target] to specify version (stable, latest, or specific version)
   mcp                                               Configure and manage MCP servers
   plugin                                            Manage Claude Code plugins
   setup-token                                       Set up a long-lived authentication token (requires Claude subscription)
-  doctor                                            Check the health of your Claude Code auto-updater
   update                                            Check for updates and install if available
-  install [options] [target]                        Install Claude Code native build. Use [target] to specify version (stable, latest, or specific version)
-```
-
-#### `claude config update`
-
-```
-Usage: claude [options] [command] [prompt]
-
-Claude Code - starts an interactive session by default, use -p/--print for
-non-interactive output
-
-Arguments:
-  prompt                                            Your prompt
-
-Options:
-  -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
-  --verbose                                         Override verbose mode setting from config
-  -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
-  --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
-  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
-  --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
-  --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
-  --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
-  --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
-  --allow-dangerously-skip-permissions              Enable bypassing all permission checks as an option, without it being enabled by default. Recommended only for sandboxes with no internet access.
-  --max-budget-usd <amount>                         Maximum dollar amount to spend on API calls (only works with --print)
-  --replay-user-messages                            Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)
-  --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
-  --tools <tools...>                                Specify the list of available tools from the built-in set. Use "" to disable all tools, "default" to use all tools, or specify tool names (e.g. "Bash,Edit,Read"). Only works with --print mode.
-  --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
-  --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
-  --system-prompt <prompt>                          System prompt to use for the session
-  --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
-  -c, --continue                                    Continue the most recent conversation
-  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
-  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
-  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
-  --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
-  --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
-  --betas <betas...>                                Beta headers to include in API requests (API key users only)
-  --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
-  --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
-  --add-dir <directories...>                        Additional directories to allow tool access to
-  --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available
-  --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations
-  --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
-  --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
-  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
-  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
-  --disable-slash-commands                          Disable all slash commands
-  --chrome                                          Enable Claude in Chrome integration
-  --no-chrome                                       Disable Claude in Chrome integration
-  -v, --version                                     Output the version number
-  -h, --help                                        Display help for command
-
-Commands:
-  mcp                                               Configure and manage MCP servers
-  plugin                                            Manage Claude Code plugins
-  setup-token                                       Set up a long-lived authentication token (requires Claude subscription)
-  doctor                                            Check the health of your Claude Code auto-updater
-  update                                            Check for updates and install if available
-  install [options] [target]                        Install Claude Code native build. Use [target] to specify version (stable, latest, or specific version)
 ```
 
 #### `claude config install`
@@ -467,54 +219,302 @@ Arguments:
   prompt                                            Your prompt
 
 Options:
+  --add-dir <directories...>                        Additional directories to allow tool access to
+  --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
+  --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
+  --allow-dangerously-skip-permissions              Enable bypassing all permission checks as an option, without it being enabled by default. Recommended only for sandboxes with no internet access.
+  --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
+  --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
+  --betas <betas...>                                Beta headers to include in API requests (API key users only)
+  --chrome                                          Enable Claude in Chrome integration
+  -c, --continue                                    Continue the most recent conversation
+  --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
   -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
-  --verbose                                         Override verbose mode setting from config
-  -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
-  --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
-  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
+  --disable-slash-commands                          Disable all slash commands
+  --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
+  --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
+  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
+  -h, --help                                        Display help for command
+  --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available
   --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
   --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
-  --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
-  --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
-  --allow-dangerously-skip-permissions              Enable bypassing all permission checks as an option, without it being enabled by default. Recommended only for sandboxes with no internet access.
+  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
   --max-budget-usd <amount>                         Maximum dollar amount to spend on API calls (only works with --print)
-  --replay-user-messages                            Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)
-  --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
-  --tools <tools...>                                Specify the list of available tools from the built-in set. Use "" to disable all tools, "default" to use all tools, or specify tool names (e.g. "Bash,Edit,Read"). Only works with --print mode.
-  --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
-  --system-prompt <prompt>                          System prompt to use for the session
-  --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
-  -c, --continue                                    Continue the most recent conversation
-  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
-  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
-  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
+  --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
-  --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
-  --betas <betas...>                                Beta headers to include in API requests (API key users only)
-  --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
-  --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
-  --add-dir <directories...>                        Additional directories to allow tool access to
-  --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available
-  --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations
-  --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
-  --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
-  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
-  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
-  --disable-slash-commands                          Disable all slash commands
-  --chrome                                          Enable Claude in Chrome integration
   --no-chrome                                       Disable Claude in Chrome integration
+  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
+  --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
+  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
+  -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
+  --replay-user-messages                            Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)
+  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
+  --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
+  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
+  --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
+  --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations
+  --system-prompt <prompt>                          System prompt to use for the session
+  --tools <tools...>                                Specify the list of available tools from the built-in set. Use "" to disable all tools, "default" to use all tools, or specify tool names (e.g. "Bash,Edit,Read").
+  --verbose                                         Override verbose mode setting from config
   -v, --version                                     Output the version number
-  -h, --help                                        Display help for command
 
 Commands:
+  doctor                                            Check the health of your Claude Code auto-updater
+  install [options] [target]                        Install Claude Code native build. Use [target] to specify version (stable, latest, or specific version)
   mcp                                               Configure and manage MCP servers
   plugin                                            Manage Claude Code plugins
   setup-token                                       Set up a long-lived authentication token (requires Claude subscription)
-  doctor                                            Check the health of your Claude Code auto-updater
   update                                            Check for updates and install if available
+```
+
+#### `claude config mcp`
+
+```
+Usage: claude [options] [command] [prompt]
+
+Claude Code - starts an interactive session by default, use -p/--print for
+non-interactive output
+
+Arguments:
+  prompt                                            Your prompt
+
+Options:
+  --add-dir <directories...>                        Additional directories to allow tool access to
+  --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
+  --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
+  --allow-dangerously-skip-permissions              Enable bypassing all permission checks as an option, without it being enabled by default. Recommended only for sandboxes with no internet access.
+  --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
+  --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
+  --betas <betas...>                                Beta headers to include in API requests (API key users only)
+  --chrome                                          Enable Claude in Chrome integration
+  -c, --continue                                    Continue the most recent conversation
+  --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
+  -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
+  --disable-slash-commands                          Disable all slash commands
+  --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
+  --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
+  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
+  -h, --help                                        Display help for command
+  --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available
+  --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
+  --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
+  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
+  --max-budget-usd <amount>                         Maximum dollar amount to spend on API calls (only works with --print)
+  --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
+  --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
+  --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
+  --no-chrome                                       Disable Claude in Chrome integration
+  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
+  --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
+  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
+  -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
+  --replay-user-messages                            Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)
+  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
+  --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
+  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
+  --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
+  --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations
+  --system-prompt <prompt>                          System prompt to use for the session
+  --tools <tools...>                                Specify the list of available tools from the built-in set. Use "" to disable all tools, "default" to use all tools, or specify tool names (e.g. "Bash,Edit,Read").
+  --verbose                                         Override verbose mode setting from config
+  -v, --version                                     Output the version number
+
+Commands:
+  doctor                                            Check the health of your Claude Code auto-updater
   install [options] [target]                        Install Claude Code native build. Use [target] to specify version (stable, latest, or specific version)
+  mcp                                               Configure and manage MCP servers
+  plugin                                            Manage Claude Code plugins
+  setup-token                                       Set up a long-lived authentication token (requires Claude subscription)
+  update                                            Check for updates and install if available
+```
+
+#### `claude config plugin`
+
+```
+Usage: claude [options] [command] [prompt]
+
+Claude Code - starts an interactive session by default, use -p/--print for
+non-interactive output
+
+Arguments:
+  prompt                                            Your prompt
+
+Options:
+  --add-dir <directories...>                        Additional directories to allow tool access to
+  --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
+  --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
+  --allow-dangerously-skip-permissions              Enable bypassing all permission checks as an option, without it being enabled by default. Recommended only for sandboxes with no internet access.
+  --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
+  --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
+  --betas <betas...>                                Beta headers to include in API requests (API key users only)
+  --chrome                                          Enable Claude in Chrome integration
+  -c, --continue                                    Continue the most recent conversation
+  --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
+  -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
+  --disable-slash-commands                          Disable all slash commands
+  --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
+  --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
+  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
+  -h, --help                                        Display help for command
+  --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available
+  --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
+  --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
+  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
+  --max-budget-usd <amount>                         Maximum dollar amount to spend on API calls (only works with --print)
+  --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
+  --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
+  --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
+  --no-chrome                                       Disable Claude in Chrome integration
+  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
+  --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
+  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
+  -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
+  --replay-user-messages                            Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)
+  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
+  --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
+  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
+  --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
+  --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations
+  --system-prompt <prompt>                          System prompt to use for the session
+  --tools <tools...>                                Specify the list of available tools from the built-in set. Use "" to disable all tools, "default" to use all tools, or specify tool names (e.g. "Bash,Edit,Read").
+  --verbose                                         Override verbose mode setting from config
+  -v, --version                                     Output the version number
+
+Commands:
+  doctor                                            Check the health of your Claude Code auto-updater
+  install [options] [target]                        Install Claude Code native build. Use [target] to specify version (stable, latest, or specific version)
+  mcp                                               Configure and manage MCP servers
+  plugin                                            Manage Claude Code plugins
+  setup-token                                       Set up a long-lived authentication token (requires Claude subscription)
+  update                                            Check for updates and install if available
+```
+
+#### `claude config setup-token`
+
+```
+Usage: claude [options] [command] [prompt]
+
+Claude Code - starts an interactive session by default, use -p/--print for
+non-interactive output
+
+Arguments:
+  prompt                                            Your prompt
+
+Options:
+  --add-dir <directories...>                        Additional directories to allow tool access to
+  --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
+  --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
+  --allow-dangerously-skip-permissions              Enable bypassing all permission checks as an option, without it being enabled by default. Recommended only for sandboxes with no internet access.
+  --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
+  --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
+  --betas <betas...>                                Beta headers to include in API requests (API key users only)
+  --chrome                                          Enable Claude in Chrome integration
+  -c, --continue                                    Continue the most recent conversation
+  --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
+  -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
+  --disable-slash-commands                          Disable all slash commands
+  --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
+  --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
+  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
+  -h, --help                                        Display help for command
+  --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available
+  --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
+  --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
+  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
+  --max-budget-usd <amount>                         Maximum dollar amount to spend on API calls (only works with --print)
+  --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
+  --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
+  --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
+  --no-chrome                                       Disable Claude in Chrome integration
+  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
+  --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
+  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
+  -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
+  --replay-user-messages                            Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)
+  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
+  --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
+  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
+  --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
+  --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations
+  --system-prompt <prompt>                          System prompt to use for the session
+  --tools <tools...>                                Specify the list of available tools from the built-in set. Use "" to disable all tools, "default" to use all tools, or specify tool names (e.g. "Bash,Edit,Read").
+  --verbose                                         Override verbose mode setting from config
+  -v, --version                                     Output the version number
+
+Commands:
+  doctor                                            Check the health of your Claude Code auto-updater
+  install [options] [target]                        Install Claude Code native build. Use [target] to specify version (stable, latest, or specific version)
+  mcp                                               Configure and manage MCP servers
+  plugin                                            Manage Claude Code plugins
+  setup-token                                       Set up a long-lived authentication token (requires Claude subscription)
+  update                                            Check for updates and install if available
+```
+
+#### `claude config update`
+
+```
+Usage: claude [options] [command] [prompt]
+
+Claude Code - starts an interactive session by default, use -p/--print for
+non-interactive output
+
+Arguments:
+  prompt                                            Your prompt
+
+Options:
+  --add-dir <directories...>                        Additional directories to allow tool access to
+  --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
+  --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
+  --allow-dangerously-skip-permissions              Enable bypassing all permission checks as an option, without it being enabled by default. Recommended only for sandboxes with no internet access.
+  --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
+  --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
+  --betas <betas...>                                Beta headers to include in API requests (API key users only)
+  --chrome                                          Enable Claude in Chrome integration
+  -c, --continue                                    Continue the most recent conversation
+  --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
+  -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
+  --disable-slash-commands                          Disable all slash commands
+  --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
+  --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
+  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
+  -h, --help                                        Display help for command
+  --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available
+  --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
+  --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
+  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
+  --max-budget-usd <amount>                         Maximum dollar amount to spend on API calls (only works with --print)
+  --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
+  --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
+  --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
+  --no-chrome                                       Disable Claude in Chrome integration
+  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
+  --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
+  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
+  -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
+  --replay-user-messages                            Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)
+  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
+  --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
+  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
+  --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
+  --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations
+  --system-prompt <prompt>                          System prompt to use for the session
+  --tools <tools...>                                Specify the list of available tools from the built-in set. Use "" to disable all tools, "default" to use all tools, or specify tool names (e.g. "Bash,Edit,Read").
+  --verbose                                         Override verbose mode setting from config
+  -v, --version                                     Output the version number
+
+Commands:
+  doctor                                            Check the health of your Claude Code auto-updater
+  install [options] [target]                        Install Claude Code native build. Use [target] to specify version (stable, latest, or specific version)
+  mcp                                               Configure and manage MCP servers
+  plugin                                            Manage Claude Code plugins
+  setup-token                                       Set up a long-lived authentication token (requires Claude subscription)
+  update                                            Check for updates and install if available
 ```
 
 ## MCP Commands
@@ -530,7 +530,6 @@ Options:
   -h, --help                                     Display help for command
 
 Commands:
-  serve [options]                                Start the Claude Code MCP server
   add [options] <name> <commandOrUrl> [args...]  Add an MCP server to Claude Code.
   
   Examples:
@@ -541,27 +540,18 @@ Commands:
     claude mcp add --transport sse asana https://mcp.asana.com/sse
   
     # Add stdio server:
-    claude mcp add --transport stdio airtable --env AIRTABLE_API_KEY=YOUR_KEY -- npx -y airtable-mcp-server
-  remove [options] <name>                        Remove an MCP server
-  list                                           List configured MCP servers
-  get <name>                                     Get details about an MCP server
-  add-json [options] <name> <json>               Add an MCP server (stdio or SSE) with a JSON string
+    claude mcp add --transport stdio --env AIRTABLE_API_KEY=YOUR_KEY airtable -- npx -y airtable-mcp-server
+  
+    # Add stdio server with subprocess flags:
+    claude mcp add --transport stdio my-server -- my-command --some-flag arg1
   add-from-claude-desktop [options]              Import MCP servers from Claude Desktop (Mac and WSL only)
-  reset-project-choices                          Reset all approved and rejected project-scoped (.mcp.json) servers within this project
+  add-json [options] <name> <json>               Add an MCP server (stdio or SSE) with a JSON string
+  get <name>                                     Get details about an MCP server
   help [command]                                 display help for command
-```
-
-#### `claude mcp serve`
-
-```
-Usage: claude mcp serve [options]
-
-Start the Claude Code MCP server
-
-Options:
-  -d, --debug  Enable debug mode
-  --verbose    Override verbose mode setting from config
-  -h, --help   Display help for command
+  list                                           List configured MCP servers
+  remove [options] <name>                        Remove an MCP server
+  reset-project-choices                          Reset all approved and rejected project-scoped (.mcp.json) servers within this project
+  serve [options]                                Start the Claude Code MCP server
 ```
 
 #### `claude mcp add`
@@ -579,17 +569,20 @@ Examples:
   claude mcp add --transport sse asana https://mcp.asana.com/sse
 
   # Add stdio server:
-  claude mcp add --transport stdio airtable --env AIRTABLE_API_KEY=YOUR_KEY -- npx -y airtable-mcp-server
+  claude mcp add --transport stdio --env AIRTABLE_API_KEY=YOUR_KEY airtable -- npx -y airtable-mcp-server
+
+  # Add stdio server with subprocess flags:
+  claude mcp add --transport stdio my-server -- my-command --some-flag arg1
 
 Options:
-  -s, --scope <scope>          Configuration scope (local, user, or project)
-                               (default: "local")
-  -t, --transport <transport>  Transport type (stdio, sse, http). Defaults to
-                               stdio if not specified.
   -e, --env <env...>           Set environment variables (e.g. -e KEY=value)
   -H, --header <header...>     Set WebSocket headers (e.g. -H "X-Api-Key:
                                abc123" -H "X-Custom: value")
   -h, --help                   Display help for command
+  -s, --scope <scope>          Configuration scope (local, user, or project)
+                               (default: "local")
+  -t, --transport <transport>  Transport type (stdio, sse, http). Defaults to
+                               stdio if not specified.
 ```
 
 #### `claude mcp Examples:`
@@ -603,7 +596,6 @@ Options:
   -h, --help                                     Display help for command
 
 Commands:
-  serve [options]                                Start the Claude Code MCP server
   add [options] <name> <commandOrUrl> [args...]  Add an MCP server to Claude Code.
   
   Examples:
@@ -614,62 +606,18 @@ Commands:
     claude mcp add --transport sse asana https://mcp.asana.com/sse
   
     # Add stdio server:
-    claude mcp add --transport stdio airtable --env AIRTABLE_API_KEY=YOUR_KEY -- npx -y airtable-mcp-server
-  remove [options] <name>                        Remove an MCP server
-  list                                           List configured MCP servers
-  get <name>                                     Get details about an MCP server
-  add-json [options] <name> <json>               Add an MCP server (stdio or SSE) with a JSON string
+    claude mcp add --transport stdio --env AIRTABLE_API_KEY=YOUR_KEY airtable -- npx -y airtable-mcp-server
+  
+    # Add stdio server with subprocess flags:
+    claude mcp add --transport stdio my-server -- my-command --some-flag arg1
   add-from-claude-desktop [options]              Import MCP servers from Claude Desktop (Mac and WSL only)
-  reset-project-choices                          Reset all approved and rejected project-scoped (.mcp.json) servers within this project
+  add-json [options] <name> <json>               Add an MCP server (stdio or SSE) with a JSON string
+  get <name>                                     Get details about an MCP server
   help [command]                                 display help for command
-```
-
-#### `claude mcp remove`
-
-```
-Usage: claude mcp remove [options] <name>
-
-Remove an MCP server
-
-Options:
-  -s, --scope <scope>  Configuration scope (local, user, or project) - if not
-                       specified, removes from whichever scope it exists in
-  -h, --help           Display help for command
-```
-
-#### `claude mcp list`
-
-```
-Usage: claude mcp list [options]
-
-List configured MCP servers
-
-Options:
-  -h, --help  Display help for command
-```
-
-#### `claude mcp get`
-
-```
-Usage: claude mcp get [options] <name>
-
-Get details about an MCP server
-
-Options:
-  -h, --help  Display help for command
-```
-
-#### `claude mcp add-json`
-
-```
-Usage: claude mcp add-json [options] <name> <json>
-
-Add an MCP server (stdio or SSE) with a JSON string
-
-Options:
-  -s, --scope <scope>  Configuration scope (local, user, or project) (default:
-                       "local")
-  -h, --help           Display help for command
+  list                                           List configured MCP servers
+  remove [options] <name>                        Remove an MCP server
+  reset-project-choices                          Reset all approved and rejected project-scoped (.mcp.json) servers within this project
+  serve [options]                                Start the Claude Code MCP server
 ```
 
 #### `claude mcp add-from-claude-desktop`
@@ -680,18 +628,30 @@ Usage: claude mcp add-from-claude-desktop [options]
 Import MCP servers from Claude Desktop (Mac and WSL only)
 
 Options:
+  -h, --help           Display help for command
   -s, --scope <scope>  Configuration scope (local, user, or project) (default:
                        "local")
+```
+
+#### `claude mcp add-json`
+
+```
+Usage: claude mcp add-json [options] <name> <json>
+
+Add an MCP server (stdio or SSE) with a JSON string
+
+Options:
   -h, --help           Display help for command
+  -s, --scope <scope>  Configuration scope (local, user, or project) (default:
+                       "local")
 ```
 
-#### `claude mcp reset-project-choices`
+#### `claude mcp get`
 
 ```
-Usage: claude mcp reset-project-choices [options]
+Usage: claude mcp get [options] <name>
 
-Reset all approved and rejected project-scoped (.mcp.json) servers within this
-project
+Get details about an MCP server
 
 Options:
   -h, --help  Display help for command
@@ -708,7 +668,6 @@ Options:
   -h, --help                                     Display help for command
 
 Commands:
-  serve [options]                                Start the Claude Code MCP server
   add [options] <name> <commandOrUrl> [args...]  Add an MCP server to Claude Code.
   
   Examples:
@@ -719,14 +678,67 @@ Commands:
     claude mcp add --transport sse asana https://mcp.asana.com/sse
   
     # Add stdio server:
-    claude mcp add --transport stdio airtable --env AIRTABLE_API_KEY=YOUR_KEY -- npx -y airtable-mcp-server
-  remove [options] <name>                        Remove an MCP server
-  list                                           List configured MCP servers
-  get <name>                                     Get details about an MCP server
-  add-json [options] <name> <json>               Add an MCP server (stdio or SSE) with a JSON string
+    claude mcp add --transport stdio --env AIRTABLE_API_KEY=YOUR_KEY airtable -- npx -y airtable-mcp-server
+  
+    # Add stdio server with subprocess flags:
+    claude mcp add --transport stdio my-server -- my-command --some-flag arg1
   add-from-claude-desktop [options]              Import MCP servers from Claude Desktop (Mac and WSL only)
-  reset-project-choices                          Reset all approved and rejected project-scoped (.mcp.json) servers within this project
+  add-json [options] <name> <json>               Add an MCP server (stdio or SSE) with a JSON string
+  get <name>                                     Get details about an MCP server
   help [command]                                 display help for command
+  list                                           List configured MCP servers
+  remove [options] <name>                        Remove an MCP server
+  reset-project-choices                          Reset all approved and rejected project-scoped (.mcp.json) servers within this project
+  serve [options]                                Start the Claude Code MCP server
+```
+
+#### `claude mcp list`
+
+```
+Usage: claude mcp list [options]
+
+List configured MCP servers
+
+Options:
+  -h, --help  Display help for command
+```
+
+#### `claude mcp remove`
+
+```
+Usage: claude mcp remove [options] <name>
+
+Remove an MCP server
+
+Options:
+  -h, --help           Display help for command
+  -s, --scope <scope>  Configuration scope (local, user, or project) - if not
+                       specified, removes from whichever scope it exists in
+```
+
+#### `claude mcp reset-project-choices`
+
+```
+Usage: claude mcp reset-project-choices [options]
+
+Reset all approved and rejected project-scoped (.mcp.json) servers within this
+project
+
+Options:
+  -h, --help  Display help for command
+```
+
+#### `claude mcp serve`
+
+```
+Usage: claude mcp serve [options]
+
+Start the Claude Code MCP server
+
+Options:
+  -d, --debug  Enable debug mode
+  -h, --help   Display help for command
+  --verbose    Override verbose mode setting from config
 ```
 
 ## Utility Commands
@@ -743,54 +755,54 @@ Arguments:
   prompt                                            Your prompt
 
 Options:
+  --add-dir <directories...>                        Additional directories to allow tool access to
+  --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
+  --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
+  --allow-dangerously-skip-permissions              Enable bypassing all permission checks as an option, without it being enabled by default. Recommended only for sandboxes with no internet access.
+  --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
+  --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
+  --betas <betas...>                                Beta headers to include in API requests (API key users only)
+  --chrome                                          Enable Claude in Chrome integration
+  -c, --continue                                    Continue the most recent conversation
+  --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
   -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
-  --verbose                                         Override verbose mode setting from config
-  -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
-  --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
-  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
+  --disable-slash-commands                          Disable all slash commands
+  --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
+  --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
+  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
+  -h, --help                                        Display help for command
+  --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available
   --include-partial-messages                        Include partial message chunks as they arrive (only works with --print and --output-format=stream-json)
   --input-format <format>                           Input format (only works with --print): "text" (default), or "stream-json" (realtime streaming input) (choices: "text", "stream-json")
-  --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
-  --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
-  --allow-dangerously-skip-permissions              Enable bypassing all permission checks as an option, without it being enabled by default. Recommended only for sandboxes with no internet access.
+  --json-schema <schema>                            JSON Schema for structured output validation. Example: {"type":"object","properties":{"name":{"type":"string"}},"required":["name"]}
   --max-budget-usd <amount>                         Maximum dollar amount to spend on API calls (only works with --print)
-  --replay-user-messages                            Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)
-  --allowedTools, --allowed-tools <tools...>        Comma or space-separated list of tool names to allow (e.g. "Bash(git:*) Edit")
-  --tools <tools...>                                Specify the list of available tools from the built-in set. Use "" to disable all tools, "default" to use all tools, or specify tool names (e.g. "Bash,Edit,Read"). Only works with --print mode.
-  --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --mcp-config <configs...>                         Load MCP servers from JSON files or strings (space-separated)
-  --system-prompt <prompt>                          System prompt to use for the session
-  --append-system-prompt <prompt>                   Append a system prompt to the default system prompt
-  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
-  -c, --continue                                    Continue the most recent conversation
-  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
-  --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
-  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
+  --mcp-debug                                       [DEPRECATED. Use --debug instead] Enable MCP debug mode (shows MCP server errors)
   --model <model>                                   Model for the current session. Provide an alias for the latest model (e.g. 'sonnet' or 'opus') or a model's full name (e.g. 'claude-sonnet-4-5-20250929').
-  --agent <agent>                                   Agent for the current session. Overrides the 'agent' setting.
-  --betas <betas...>                                Beta headers to include in API requests (API key users only)
-  --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
-  --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
-  --add-dir <directories...>                        Additional directories to allow tool access to
-  --ide                                             Automatically connect to IDE on startup if exactly one valid IDE is available
-  --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations
-  --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
-  --agents <json>                                   JSON object defining custom agents (e.g. '{"reviewer": {"description": "Reviews code", "prompt": "You are a code reviewer"}}')
-  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
-  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
-  --disable-slash-commands                          Disable all slash commands
-  --chrome                                          Enable Claude in Chrome integration
   --no-chrome                                       Disable Claude in Chrome integration
+  --no-session-persistence                          Disable session persistence - sessions will not be saved to disk and cannot be resumed (only works with --print)
+  --output-format <format>                          Output format (only works with --print): "text" (default), "json" (single result), or "stream-json" (realtime streaming) (choices: "text", "json", "stream-json")
+  --permission-mode <mode>                          Permission mode to use for the session (choices: "acceptEdits", "bypassPermissions", "default", "delegate", "dontAsk", "plan")
+  --plugin-dir <paths...>                           Load plugins from directories for this session only (repeatable)
+  -p, --print                                       Print response and exit (useful for pipes). Note: The workspace trust dialog is skipped when Claude is run with the -p mode. Only use this flag in directories you trust.
+  --replay-user-messages                            Re-emit user messages from stdin back on stdout for acknowledgment (only works with --input-format=stream-json and --output-format=stream-json)
+  -r, --resume [value]                              Resume a conversation by session ID, or open interactive picker with optional search term
+  --session-id <uuid>                               Use a specific session ID for the conversation (must be a valid UUID)
+  --setting-sources <sources>                       Comma-separated list of setting sources to load (user, project, local).
+  --settings <file-or-json>                         Path to a settings JSON file or a JSON string to load additional settings from
+  --strict-mcp-config                               Only use MCP servers from --mcp-config, ignoring all other MCP configurations
+  --system-prompt <prompt>                          System prompt to use for the session
+  --tools <tools...>                                Specify the list of available tools from the built-in set. Use "" to disable all tools, "default" to use all tools, or specify tool names (e.g. "Bash,Edit,Read").
+  --verbose                                         Override verbose mode setting from config
   -v, --version                                     Output the version number
-  -h, --help                                        Display help for command
 
 Commands:
+  doctor                                            Check the health of your Claude Code auto-updater
+  install [options] [target]                        Install Claude Code native build. Use [target] to specify version (stable, latest, or specific version)
   mcp                                               Configure and manage MCP servers
   plugin                                            Manage Claude Code plugins
   setup-token                                       Set up a long-lived authentication token (requires Claude subscription)
-  doctor                                            Check the health of your Claude Code auto-updater
   update                                            Check for updates and install if available
-  install [options] [target]                        Install Claude Code native build. Use [target] to specify version (stable, latest, or specific version)
 ```
 
 ### `claude setup-token`
