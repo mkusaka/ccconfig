@@ -2,8 +2,8 @@
 
 This document provides a comprehensive overview of all Claude CLI commands and their options.
 
-Generated on: 2026-01-09 00:20:48 UTC
-Claude CLI Version: 2.1.2 (Claude Code)
+Generated on: 2026-01-10 00:19:58 UTC
+Claude CLI Version: 2.1.3 (Claude Code)
 
 ---
 
@@ -42,7 +42,7 @@ Options:
   -c, --continue                                    Continue the most recent conversation in the current directory
   --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
   -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
-  --disable-slash-commands                          Disable all slash commands
+  --disable-slash-commands                          Disable all skills
   --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -106,7 +106,7 @@ Options:
   -c, --continue                                    Continue the most recent conversation in the current directory
   --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
   -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
-  --disable-slash-commands                          Disable all slash commands
+  --disable-slash-commands                          Disable all skills
   --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -168,7 +168,7 @@ Options:
   -c, --continue                                    Continue the most recent conversation in the current directory
   --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
   -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
-  --disable-slash-commands                          Disable all slash commands
+  --disable-slash-commands                          Disable all skills
   --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -230,7 +230,7 @@ Options:
   -c, --continue                                    Continue the most recent conversation in the current directory
   --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
   -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
-  --disable-slash-commands                          Disable all slash commands
+  --disable-slash-commands                          Disable all skills
   --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -292,7 +292,7 @@ Options:
   -c, --continue                                    Continue the most recent conversation in the current directory
   --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
   -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
-  --disable-slash-commands                          Disable all slash commands
+  --disable-slash-commands                          Disable all skills
   --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -354,7 +354,7 @@ Options:
   -c, --continue                                    Continue the most recent conversation in the current directory
   --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
   -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
-  --disable-slash-commands                          Disable all slash commands
+  --disable-slash-commands                          Disable all skills
   --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -416,7 +416,7 @@ Options:
   -c, --continue                                    Continue the most recent conversation in the current directory
   --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
   -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
-  --disable-slash-commands                          Disable all slash commands
+  --disable-slash-commands                          Disable all skills
   --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -478,7 +478,7 @@ Options:
   -c, --continue                                    Continue the most recent conversation in the current directory
   --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
   -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
-  --disable-slash-commands                          Disable all slash commands
+  --disable-slash-commands                          Disable all skills
   --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
@@ -532,20 +532,18 @@ Options:
 Commands:
   add [options] <name> <commandOrUrl> [args...]  Add an MCP server to Claude Code.
   
-  Note: All options (--transport, --env, --scope, --header) must come before the server name.
-  
   Examples:
     # Add HTTP server:
     claude mcp add --transport http sentry https://mcp.sentry.dev/mcp
   
-    # Add SSE server:
-    claude mcp add --transport sse asana https://mcp.asana.com/sse
+    # Add HTTP server with headers:
+    claude mcp add --transport http corridor https://app.corridor.dev/api/mcp --header "Authorization: Bearer ..."
   
     # Add stdio server with environment variables:
-    claude mcp add --transport stdio -e API_KEY=xxx -e OTHER=yyy my-server -- npx my-mcp-server
+    claude mcp add -e API_KEY=xxx my-server -- npx my-mcp-server
   
     # Add stdio server with subprocess flags:
-    claude mcp add --transport stdio my-server -- my-command --some-flag arg1
+    claude mcp add my-server -- my-command --some-flag arg1
   add-from-claude-desktop [options]              Import MCP servers from Claude Desktop (Mac and WSL only)
   add-json [options] <name> <json>               Add an MCP server (stdio or SSE) with a JSON string
   get <name>                                     Get details about an MCP server
@@ -563,20 +561,18 @@ Usage: claude mcp add [options] <name> <commandOrUrl> [args...]
 
 Add an MCP server to Claude Code.
 
-Note: All options (--transport, --env, --scope, --header) must come before the server name.
-
 Examples:
   # Add HTTP server:
   claude mcp add --transport http sentry https://mcp.sentry.dev/mcp
 
-  # Add SSE server:
-  claude mcp add --transport sse asana https://mcp.asana.com/sse
+  # Add HTTP server with headers:
+  claude mcp add --transport http corridor https://app.corridor.dev/api/mcp --header "Authorization: Bearer ..."
 
   # Add stdio server with environment variables:
-  claude mcp add --transport stdio -e API_KEY=xxx -e OTHER=yyy my-server -- npx my-mcp-server
+  claude mcp add -e API_KEY=xxx my-server -- npx my-mcp-server
 
   # Add stdio server with subprocess flags:
-  claude mcp add --transport stdio my-server -- my-command --some-flag arg1
+  claude mcp add my-server -- my-command --some-flag arg1
 
 Options:
   -e, --env <env...>           Set environment variables (e.g. -e KEY=value)
@@ -587,43 +583,6 @@ Options:
                                (default: "local")
   -t, --transport <transport>  Transport type (stdio, sse, http). Defaults to
                                stdio if not specified.
-```
-
-#### `claude mcp Note:`
-
-```
-Usage: claude mcp [options] [command]
-
-Configure and manage MCP servers
-
-Options:
-  -h, --help                                     Display help for command
-
-Commands:
-  add [options] <name> <commandOrUrl> [args...]  Add an MCP server to Claude Code.
-  
-  Note: All options (--transport, --env, --scope, --header) must come before the server name.
-  
-  Examples:
-    # Add HTTP server:
-    claude mcp add --transport http sentry https://mcp.sentry.dev/mcp
-  
-    # Add SSE server:
-    claude mcp add --transport sse asana https://mcp.asana.com/sse
-  
-    # Add stdio server with environment variables:
-    claude mcp add --transport stdio -e API_KEY=xxx -e OTHER=yyy my-server -- npx my-mcp-server
-  
-    # Add stdio server with subprocess flags:
-    claude mcp add --transport stdio my-server -- my-command --some-flag arg1
-  add-from-claude-desktop [options]              Import MCP servers from Claude Desktop (Mac and WSL only)
-  add-json [options] <name> <json>               Add an MCP server (stdio or SSE) with a JSON string
-  get <name>                                     Get details about an MCP server
-  help [command]                                 display help for command
-  list                                           List configured MCP servers
-  remove [options] <name>                        Remove an MCP server
-  reset-project-choices                          Reset all approved and rejected project-scoped (.mcp.json) servers within this project
-  serve [options]                                Start the Claude Code MCP server
 ```
 
 #### `claude mcp Examples:`
@@ -639,20 +598,18 @@ Options:
 Commands:
   add [options] <name> <commandOrUrl> [args...]  Add an MCP server to Claude Code.
   
-  Note: All options (--transport, --env, --scope, --header) must come before the server name.
-  
   Examples:
     # Add HTTP server:
     claude mcp add --transport http sentry https://mcp.sentry.dev/mcp
   
-    # Add SSE server:
-    claude mcp add --transport sse asana https://mcp.asana.com/sse
+    # Add HTTP server with headers:
+    claude mcp add --transport http corridor https://app.corridor.dev/api/mcp --header "Authorization: Bearer ..."
   
     # Add stdio server with environment variables:
-    claude mcp add --transport stdio -e API_KEY=xxx -e OTHER=yyy my-server -- npx my-mcp-server
+    claude mcp add -e API_KEY=xxx my-server -- npx my-mcp-server
   
     # Add stdio server with subprocess flags:
-    claude mcp add --transport stdio my-server -- my-command --some-flag arg1
+    claude mcp add my-server -- my-command --some-flag arg1
   add-from-claude-desktop [options]              Import MCP servers from Claude Desktop (Mac and WSL only)
   add-json [options] <name> <json>               Add an MCP server (stdio or SSE) with a JSON string
   get <name>                                     Get details about an MCP server
@@ -713,20 +670,18 @@ Options:
 Commands:
   add [options] <name> <commandOrUrl> [args...]  Add an MCP server to Claude Code.
   
-  Note: All options (--transport, --env, --scope, --header) must come before the server name.
-  
   Examples:
     # Add HTTP server:
     claude mcp add --transport http sentry https://mcp.sentry.dev/mcp
   
-    # Add SSE server:
-    claude mcp add --transport sse asana https://mcp.asana.com/sse
+    # Add HTTP server with headers:
+    claude mcp add --transport http corridor https://app.corridor.dev/api/mcp --header "Authorization: Bearer ..."
   
     # Add stdio server with environment variables:
-    claude mcp add --transport stdio -e API_KEY=xxx -e OTHER=yyy my-server -- npx my-mcp-server
+    claude mcp add -e API_KEY=xxx my-server -- npx my-mcp-server
   
     # Add stdio server with subprocess flags:
-    claude mcp add --transport stdio my-server -- my-command --some-flag arg1
+    claude mcp add my-server -- my-command --some-flag arg1
   add-from-claude-desktop [options]              Import MCP servers from Claude Desktop (Mac and WSL only)
   add-json [options] <name> <json>               Add an MCP server (stdio or SSE) with a JSON string
   get <name>                                     Get details about an MCP server
@@ -811,7 +766,7 @@ Options:
   -c, --continue                                    Continue the most recent conversation in the current directory
   --dangerously-skip-permissions                    Bypass all permission checks. Recommended only for sandboxes with no internet access.
   -d, --debug [filter]                              Enable debug mode with optional category filtering (e.g., "api,hooks" or "!statsig,!file")
-  --disable-slash-commands                          Disable all slash commands
+  --disable-slash-commands                          Disable all skills
   --disallowedTools, --disallowed-tools <tools...>  Comma or space-separated list of tool names to deny (e.g. "Bash(git:*) Edit")
   --fallback-model <model>                          Enable automatic fallback to specified model when default model is overloaded (only works with --print)
   --fork-session                                    When resuming, create a new session ID instead of reusing the original (use with --resume or --continue)
